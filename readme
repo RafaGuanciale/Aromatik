@@ -1,0 +1,105 @@
+# Aromatik 1.3 — Web Development
+
+**visualizar projeto:** https://rafaguanciale.github.io/Aromatik/
+
+O Aromatik é meu projeto pessoal em paralelo às sprints do curso de Web Development da TripleTen. Ele serve como um laboratório onde aplico, versão após versão, tudo o que aprendi até o momento, sempre evoluindo a estrutura, o design, a organização e a clareza do código.
+
+A versão 1.3 foi desenvolvida como parte da Sprint 4, focando principalmente em:
+
+- Metodologia BEM aplicada de forma modular
+- Arquitetura de pastas organizada
+- Formulários HTML
+- Estilizações avançadas com CSS
+- Pseudo-classes e efeitos de hover
+- Iframes
+- Layout com Flexbox
+- Padronização visual e refinamento de UI
+
+Além das exigências técnicas, esta versão trouxe um ganho real de maturidade no pensamento estruturado, organização e visão de escalabilidade do projeto, algo essencial para um desenvolvedor de front-end.
+
+## Tecnologias Utilizadas
+
+- HTML5
+- CSS3
+- Flexbox
+- Pseudo-classes (hover, focus)
+- Transições CSS (effects suaves)
+- Formulários HTML
+- iFrames
+- Arquitetura modular de CSS
+- Metodologia BEM
+- Tipografia com Google Fonts
+
+## Principais Funcionalidades e Soluções Técnicas
+
+1. Cards da Coleção (Collection)
+
+- Redefinição completa dos cards para um estilo mais limpo e minimalista
+- Tamanho reduzido para melhor leitura visual
+- Efeito hover com leve transição (scale e opacidade)
+- Estrutura BEM clara
+- Layout flexível com Flexbox, sem uso de alturas fixas desnecessárias
+
+2. Formulário para adicionar perfumes
+
+- Formulário criado exclusivamente com HTML e CSS, sem JS por enquanto
+- Inputs estilizados com bordas, espaçamento e tipografia consistente
+- Estruturação BEM (form, form__label, form__input)
+- Design minimalista que se integra ao bloco Collection
+- Preparo para versões futuras (como salvar perfumes com JavaScript)
+
+3. Seção Categorias & Ocasiões
+
+- Imagens grandes com aspecto visual forte
+- Efeito de hover destacando a categoria selecionada
+- Ícones brancos sobrepostos, seguindo o tema
+- Layout organizado com Flexbox
+- Elementos centralizados verticalmente e horizontalmente
+
+4. Seção Contratipos & Alternativas
+
+- Cards duplos mostrando perfume original + alternativa
+- Ícone de seta centralizado entre eles
+- Cada par organizado em um bloco
+- Iframes preparados nesta seção para exibir vídeos explicativos
+- Será expandido nas próximas versões
+
+## Aprendizados Pessoais
+
+Esta versão do Aromatik representou uma evolução significativa em organização e clareza de código. Alguns aprendizados importantes:
+
+- Aplicar BEM não apenas nos nomes, mas na estrutura real do projeto
+- Dividir CSS de maneira modular e coerente
+- Criar blocos reutilizáveis e bem separados
+- Pensar no layout como um sistema, não como seções isoladas
+- Escrever CSS mais limpo, menos repetitivo e com mais intenção
+- Controlar bem os efeitos visuais (hover, transições, sombras)
+- Melhorar a leitura do HTML com indentação, padronização e semântica
+- Criar algo visualmente atraente mesmo sem background em design
+
+Além da parte técnica, foi uma versão em que percebi que minha visão como dev está se consolidando. Não estou mais apenas “cumprindo tarefas”, mas refletindo sobre como cada decisão afeta o projeto como um todo.
+
+## Melhorias Futuras (Roadmap)
+
+- Ajustar leves inconsistências visuais entre blocos
+- Padronizar bordas e sombras e outros detalhes visuais (UI refinada)
+- Melhorar efeitos de hover
+- Tornar seções mais fluidas com espaçamentos consistentes
+- Inserir modal de perfume usando JavaScript (Apenas quando chegar no sprint de JS)
+- Implementar responsividade completa
+- Salvar perfumes adicionados no formulário usando LocalStorage (Sprint de JS)
+- Criar páginas individuais para cada perfume
+
+## Screenshots
+
+Header
+![Header](./images/screenshots/header.jpg)
+
+Coleção
+![Coleção](./images/screenshots/colection.jpg)
+
+Categorias
+![Categorias](./images/screenshots/categories.jpg)
+
+Contratipos
+![Inspirados](./images/screenshots/contratipos.jpg)
