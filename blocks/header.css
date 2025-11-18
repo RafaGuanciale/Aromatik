@@ -1,0 +1,120 @@
+.header {
+  background-image: url("../images/background.jpg");
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.header__overlay {
+  height: 100%;
+  background-color: rgba(241, 224, 197, 0.4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+}
+
+.header__home-button {
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+}
+
+.header__icon {
+  height: 32px;
+  object-fit: contain;
+}
+
+.header__logo {
+  height: 110px;
+  display: flex;
+  align-items: center;
+}
+
+.header__title {
+  font-family: "Playfair Display", serif;
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #342a21;
+  text-align: center;
+  text-transform: capitalize;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.header__profile {
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__profile-list {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+}
+
+.header__profile-icon {
+  height: 32px;
+  object-fit: contain;
+}
+
+.header__profile-link {
+  display: flex;
+  font-family: "Montserrat", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #342a21;
+  text-align: center;
+  align-items: center;
+  text-decoration: none;
+  gap: 10px;
+  transition: color 0.3s ease;
+}
+
+.header__nav {
+  background-color: #71816d;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav__bar {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  list-style-type: none;
+  gap: 40px;
+  padding: 0;
+  justify-content: center;
+  margin: 0 50px;
+}
+
+.nav__link {
+  text-decoration: solid;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #f1e0c5;
+  transition: color 0.3s ease;
+}
+
+.nav__link:hover {
+  opacity: 80%;
+  transition: 0.1s;
+}
+
+.header__profile:hover {
+  opacity: 70%;
+  transition: 0.1s;
+}
+
+.header__home-button:hover {
+  opacity: 70%;
+  transition: 0.1s;
+  cursor: pointer;
+}

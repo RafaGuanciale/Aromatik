@@ -1,0 +1,66 @@
+.inspired__content{
+  display: flex;
+  max-width: 1400px;
+  margin: auto;
+  align-items: center;
+  margin-bottom: 40px;
+
+}
+
+.cards__inspired {
+  margin: 0;
+  max-width: 700px;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.inspired__cards-box {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  padding: 0 8.5px;
+}
+
+.card__inspired {
+  width: 300px;
+  height: 300px;
+  border-radius: 6px;
+  border: 1px solid #342a21;
+  background-color: rgba(201, 183, 156, 0.1);
+}
+
+.card__title_inspired{
+  font-family: "Montserrat", sans-serif;
+  font-size: 23px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.card__subtittle_inspired{
+  padding-top: 10px;
+}
+
+.card__image_inspired {
+  width: 200px;
+  object-fit: contain;
+  border-radius: 3px;
+  margin: auto;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+}
+
+.inspired__list_icon {
+  list-style-type: none;
+}
+
+.inspired__icon {
+  padding: 10px;
+  height: 60px;
+}
+
+.inspired__iframe{
+  height: 280px;
+  border: 2px solid #342a21;
+}
