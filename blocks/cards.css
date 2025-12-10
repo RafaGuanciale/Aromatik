@@ -1,32 +1,43 @@
 .cards {
-  display: flex;
-  flex-wrap: wrap;
-  margin: auto;
-  padding: 0;
-  align-content: flex-start;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  justify-items: center;
 }
 
 .card {
   list-style-type: none;
   border-radius: 6px;
   border: 1px solid #342a21;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  width: 388px;
+}
+
+.card:hover {
+  opacity: 90%;
+  transition: 0.2s;
+  cursor: pointer;
+  scale: calc(101%);
 }
 
 .card__content {
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .card__tittle {
-  font-family: "Playfair Display", serif;
-  font-size: 24px;
-  font-weight: 500;
+  font-family: "Montserrat", sans-serif;
+  font-size: 23px;
+  font-weight: bold;
   line-height: 26px;
   color: #342a21;
   text-align: center;
+  padding-top: 10px;
 }
 
 .card__subtittle {
@@ -36,21 +47,71 @@
   line-height: 20px;
   color: #342a21;
   text-align: center;
+  padding-bottom: 10px;
 }
 
 .card__image {
-  width: 320px;
+  height: 70px;
+  padding: 2.5px;
   object-fit: contain;
   border-radius: 3px;
-  margin: 0 auto 50px;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
 }
 
-.card__text {
-  font-family: "Montserrat", sans-serif;
-  font-size: 16px;
-  text-align: center;
-  color: #342a21;
-  font-weight: 500;
-  margin: auto 50px 20px;
+.card__collection {
+  margin: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #f1e0c5;
+}
+
+.card__collection:hover {
+  opacity: 90%;
+  transition: 0.2s;
+  cursor: pointer;
+  scale: calc(103%);
+}
+
+.card__content_collection {
+  width: 233px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 1024px) {
+.card {
+    width: 306px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    width: 356.5px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    width: 95%;
+  }
+
+  .card__tittle {
+    font-size: 20px;
+    line-height: 95%;
+    padding-top: 5px;
+  }
+  .card__subtittle {
+    font-size: 16px;
+    padding-bottom: 5px;
+  }
+  .card__image {
+    height: 50px;
+  }
 }

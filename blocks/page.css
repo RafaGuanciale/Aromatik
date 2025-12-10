@@ -3,7 +3,9 @@
 }
 
 body {
-  background-color: #f1e0c5;
+  min-height: 100vh;
+  background-color: #c7c8b3;
+  position: relative;
 }
 
 .page {
@@ -11,4 +13,10 @@ body {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   line-height: 20px;
+  position: relative;
+}
+
+.content{
+  max-width: 1440px;
+  margin: auto;
 }

@@ -1,66 +1,164 @@
-.inspired__content{
-  display: flex;
-  max-width: 1400px;
-  margin: auto;
-  align-items: center;
-  margin-bottom: 40px;
-
+.inspired {
+  background-color: #7f907c;
+  border-radius: 30px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    "title title"
+    "subtitle subtitle"
+    "content content";
+  gap: 20px;
+  padding: 70px 30px 50px;
 }
 
-.cards__inspired {
-  margin: 0;
-  max-width: 700px;
-  flex-wrap: wrap;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  gap: 40px;
+.section__tittle_inspired {
+  color: #f1e0c5;
+  grid-area: title;
 }
 
-.inspired__cards-box {
-  display: flex;
-  align-items: center;
-  list-style-type: none;
-  padding: 0 8.5px;
+.section__subtittle_inspired {
+  color: #f1e0c5;
+  grid-area: subtitle;
 }
 
-.card__inspired {
-  width: 300px;
-  height: 300px;
+.inspired__box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "card card"
+    "iframe iframe";
   border-radius: 6px;
-  border: 1px solid #342a21;
-  background-color: rgba(201, 183, 156, 0.1);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
+  column-gap: 40px;
+  row-gap: 20px;
+  padding: 20px 30px;
+  margin: 0;
+  background-color: #f8eedf;
+  max-width: 925px;
 }
 
-.card__title_inspired{
-  font-family: "Montserrat", sans-serif;
-  font-size: 23px;
-  text-align: center;
-  padding-top: 10px;
+.inspired__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  max-width: 290px;
+  border-radius: 6px;
+  max-height: 550px;
 }
 
-.card__subtittle_inspired{
-  padding-top: 10px;
-}
-
-.card__image_inspired {
-  width: 200px;
-  object-fit: contain;
-  border-radius: 3px;
-  margin: auto;
+.inspired__card-image {
+  width: 100%;
+  max-height: 290px;
+  object-fit: cover;
+  border-radius: 5px;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
 }
 
-.inspired__list_icon {
-  list-style-type: none;
+.inspired__image-box {
+  overflow: hidden;
 }
 
-.inspired__icon {
-  padding: 10px;
-  height: 60px;
+.inspired__card-image:hover {
+  transform: scale(1.08);
+  transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
-.inspired__iframe{
-  height: 280px;
-  border: 2px solid #342a21;
+.inspired__iframe {
+  width: 100%;
+  margin: auto auto 10px;
+  grid-area: iframe;
+  border: 0;
+  border-radius: 10px;
+}
+
+.inspired__card-option {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 20px;
+  color: #342a21;
+  padding: 0 0 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.inspired__card-tittle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 22px;
+  line-height: 100%;
+  font-weight: 500;
+  color: #342a21;
+  padding: 16px 12px 12px;
+}
+
+.inspired__card-subtittle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 20px;
+  color: #342a21;
+  padding: 0 12px;
+}
+
+.inspired__card-description {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 20px;
+  color: #342a21;
+  padding: 18px 12px;
+}
+
+@media screen and (max-width: 768px) {
+  .inspired {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "title "
+      "subtitle "
+      "content";
+    gap: 40px;
+  }
+  .section__subtittle_inspired {
+    margin: 0 auto 28px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .section__tittle_inspired {
+    text-align: center;
+    max-width: 100%;
+    font-size: 36px;
+    line-height: 1;
+    font-weight: 600;
+    margin: 0 0 12px;
+  }
+
+  .section__subtittle_inspired {
+    font-size: 18px;
+    line-height: 1;
+    margin: 0 5px 34px;
+  }
+  .inspired {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "title "
+      "subtitle "
+      "content";
+    gap: 40px;
+    padding: 20px 20px;
+  }
+  .section__subtittle_inspired {
+    margin: 0 auto 28px;
+  }
+
+  .inspired__box {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "card"
+      "card"
+      "iframe";
+    row-gap: 20px;
+    padding: 15px 10px;
+  }
 }

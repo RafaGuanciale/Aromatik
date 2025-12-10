@@ -3,13 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aromatik 1.3</title>
+    <title>Aromatik 1.4</title>
     <link rel="icon" type="image/png" href="images\aromatik_icon.png" />
     <meta
       name="description"
       content="Projeto Aromatik, uma solução moderna para amantes da perfumaria"
     />
-    <meta name="keywords" content="HTML, CSS, JavaScript, perfume, aromas, perfumaria" />
+    <meta
+      name="keywords"
+      content="HTML, CSS, JavaScript, perfume, aromas, perfumaria"
+    />
     <meta name="author" content="Rafael Guanciale Nacarato" />
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap"
@@ -19,154 +22,159 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="pages/index.css">
+    <link rel="stylesheet" href="pages/index.css" />
   </head>
   <body>
     <div class="page">
       <header class="header" id="header">
         <div class="header__overlay">
-          <div class="header__home-button">
-            <img class="header__icon" src="./images/home_brown.png" />
-          </div>
-          <div class="header__logo">
-            <h1 class="header__title">Aromatik</h1>
-          </div>
-          <div class="header__profile">
-            <ul class="header__profile-list">
-              <li>
-                <a class="header__profile-link" href="#"
-                  ><img
-                    class="header__profile-icon"
-                    src="./images/circle-user_brown.png"
-                  />Profile</a
-                >
-              </li>
-            </ul>
+          <h2 class="header__title">Aromatik</h2>
+          <ul class="header__list">
+            <li><a href="#home" class="header__list-button">Home</a></li>
+            <li>
+              <a href="#collection" class="header__list-button">Colletion</a>
+            </li>
+            <li>
+              <a href="#categories" class="header__list-button">Categories</a>
+            </li>
+            <li>
+              <a href="#inspired" class="header__list-button">Inspired</a>
+            </li>
+            <li><a href="#footer" class="header__list-button">About Us</a></li>
+          </ul>
+          <div class="header__icons">
+            <img class="header__icon" src="./images/circle-user_brown.png" />
+            <img class="header__icon" src="./images/settings.png" />
           </div>
         </div>
-        <nav class="header__nav">
-          <ul class="nav__bar">
-            <li>
-              <a class="nav__link" href="#collection">Minha Coleção</a>
-            </li>
-            <li>
-              <a class="nav__link" href="#categories">Categorias & Ocasiões</a>
-            </li>
-            <li>
-              <a class="nav__link" href="#inspired">Contratipos & Alternativas</a>
-            </li>
-            <li>
-              <a class="nav__link" href="#">Inspiração & Descoberta</a>
-            </li>
-            <li>
-              <a class="nav__link" href="#footer-social">Contato</a>
-            </li>
-          </ul>
-        </nav>
       </header>
-      <main class="main">
+      <main class="content">
+        <section class="home" id="home">
+          <img src="images/campo_florido.jpg" alt="Campo florido" class="home__image">
+          <h1 class="home__title">Aromatik</h1>
+          <h2 class="home__subtitle">Sua assinatura olfativa.</h2>
+          <h2 class="home__description">Descubra fragrâncias escolhidas para você.</h2>
+          <div class="home__geo"></div>
+        </section>
         <section class="collection" id="collection">
-          <h2 class="section__tittle">Minha Coleção</h2>
-          <p class="section__subtittle">
+          <h2 class="section__tittle section__tittle_collection">
+            Minha Coleção
+          </h2>
+          <p class="section__subtittle section__subtittle_collection">
             Sua coleção, sua identidade. Um retrato olfativo das fragrâncias que
             definem seu gosto, sua presença e sua história.
           </p>
           <div class="collection__box">
             <ul class="cards">
-              <li class="card card__collection">
-                <div class="card__content card__content_collection">
-                  <h3 class="card__tittle card__tittle_collection">Versace</h3>
-                  <h4 class="card__subtittle card__subtittle_collection">Versace Pour Homme</h4>
+              <li class="card">
+                <div class="card__content">
+                  <h3 class="card__tittle">Versace</h3>
+                  <h4 class="card__subtittle">Versace Pour Homme</h4>
                 </div>
                 <img
-                class="card__image_collection"
-                src="images/Versace_pour_homme.jpeg"
-                alt="perfume Versace Pour Homme"
+                  class="card__image"
+                  src="images/Versace_pour_homme.jpeg"
+                  alt="perfume Versace Pour Homme"
                 />
               </li>
-              <li class="card card__collection">
-                <div class="card__content card__content_collection">
-                  <h3 class="card__tittle card__tittle_collection">Dolce & Gabbana</h3>
-                  <h4 class="card__subtittle card__subtittle_collection">Light Blue</h4>
+              <li class="card">
+                <div class="card__content">
+                  <h3 class="card__tittle">Dolce & Gabbana</h3>
+                  <h4 class="card__subtittle">Light Blue</h4>
                 </div>
                 <img
-                class="card__image_collection"
-                src="images/dolcegabbana_lightblue.jpg"
-                alt="perfume Light Blue"
+                  class="card__image"
+                  src="images/dolcegabbana_lightblue.jpg"
+                  alt="perfume Light Blue"
                 />
               </li>
-              <li class="card card__collection">
-                <div class="card__content card__content_collection">
-                  <h3 class="card__tittle card__tittle_collection">Chanel</h3>
-                  <h4 class="card__subtittle card__subtittle_collection">Bleu de Chanel</h4>
+              <li class="card">
+                <div class="card__content">
+                  <h3 class="card__tittle">Chanel</h3>
+                  <h4 class="card__subtittle">Bleu de Chanel</h4>
                 </div>
                 <img
-                class="card__image_collection"
-                src="images/Bleu.jpg"
-                alt="perfume Bleu de Chanel"
+                  class="card__image"
+                  src="images/Bleu.jpg"
+                  alt="perfume Bleu de Chanel"
                 />
               </li>
-              <li class="card card__collection">
-                <div class="card__content card__content_collection">
-                  <h3 class="card__tittle card__tittle_collection">Narciso Rodriguez</h3>
-                  <h4 class="card__subtittle card__subtittle_collection">Bleu Noir</h4>
+              <li class="card">
+                <div class="card__content">
+                  <h3 class="card__tittle">Narciso Rodriguez</h3>
+                  <h4 class="card__subtittle">Bleu Noir</h4>
                 </div>
                 <img
-                class="card__image_collection"
-                src="images/narcisorodriguez_bleu_noir_parfum-redimensionado-para-420x420.jpeg"
-                alt="perfume Bleu Noir"
+                  class="card__image"
+                  src="images/narcisorodriguez_bleu_noir_parfum-redimensionado-para-420x420.jpeg"
+                  alt="perfume Bleu Noir"
                 />
               </li>
-              <li class="card card__collection">
-                <div class="card__content card__content_collection">
-                  <h3 class="card__tittle card__tittle_collection">Givenchy</h3>
-                  <h4 class="card__subtittle card__subtittle_collection">Gentleman Society EDP</h4>
+              <li class="card">
+                <div class="card__content">
+                  <h3 class="card__tittle">Givenchy</h3>
+                  <h4 class="card__subtittle">Gentleman Society EDP</h4>
                 </div>
                 <img
-                class="card__image_collection"
-                src="images/givenchy_gentleman_edp-redimensionado-para-420x420.jpeg"
-                alt="perfume Gentleman Society EDP"
+                  class="card__image"
+                  src="images/givenchy_gentleman_edp-redimensionado-para-420x420.jpeg"
+                  alt="perfume Gentleman Society EDP"
                 />
               </li>
-              <li class="card card__collection">
-                <div class="card__content card__content_collection">
-                  <h3 class="card__tittle card__tittle_collection">Giorgio Armani</h3>
-                  <h4 class="card__subtittle card__subtittle_collection">Acqua di Gio parfum</h4>
+              <li class="card">
+                <div class="card__content">
+                  <h3 class="card__tittle">Giorgio Armani</h3>
+                  <h4 class="card__subtittle">Acqua di Gio parfum</h4>
                 </div>
                 <img
-                class="card__image_collection"
-                src="images/acqua_di_gio_parfum-redimensionado-para-420x420.jpeg"
-                alt="perfume Acqua di Gio parfum"
+                  class="card__image"
+                  src="images/acqua_di_gio_parfum-redimensionado-para-420x420.jpeg"
+                  alt="perfume Acqua di Gio parfum"
                 />
               </li>
-              <li class="card card__collection">
-                <div class="card__content card__content_collection">
-                  <h3 class="card__tittle card__tittle_collection">Louis Vuitton</h3>
-                  <h4 class="card__subtittle card__subtittle_collection">Imagination</h4>
+              <li class="card">
+                <div class="card__content">
+                  <h3 class="card__tittle">Louis Vuitton</h3>
+                  <h4 class="card__subtittle">Imagination</h4>
                 </div>
                 <img
-                class="card__image_collection"
-                src="images/imagination-redimensionado-para-420x420.jpeg"
-                alt="perfume Acqua di Gio parfum"
+                  class="card__image"
+                  src="images/imagination-redimensionado-para-420x420.jpeg"
+                  alt="perfume Acqua di Gio parfum"
                 />
               </li>
-              <li class="card card__collection">
-                <div class="card__content card__content_collection">
-                  <h3 class="card__tittle card__tittle_collection">Jean-Paul Gautier</h3>
-                  <h4 class="card__subtittle card__subtittle_collection">Ultra Male </h4>
+              <li class="card">
+                <div class="card__content">
+                  <h3 class="card__tittle">Jean-Paul Gautier</h3>
+                  <h4 class="card__subtittle">Ultra Male</h4>
                 </div>
                 <img
-                class="card__image_collection"
-                src="images/ultra_male-redimensionado-para-420x420.jpeg"
-                alt="perfume Acqua di Gio parfum"
+                  class="card__image"
+                  src="images/ultra_male-redimensionado-para-420x420.jpeg"
+                  alt="perfume Acqua di Gio parfum"
+                />
+              </li>
+              <li class="card">
+                <div class="card__content">
+                  <h3 class="card__tittle">Hermes</h3>
+                  <h4 class="card__subtittle">Terre d'Hermès</h4>
+                </div>
+                <img
+                  class="card__image"
+                  src="images/Hermes-Terre-Eau-Givree_vs1-redimensionado-para-420x420.jpeg"
+                  alt="perfume Terre d'Hermès"
                 />
               </li>
             </ul>
           </div>
           <div class="collection__add">
-            <h2 class="collection__form-title">Adicione um perfume à sua coleção!</h2>
+            <h2 class="collection__form-title">
+              Adicione um perfume à sua coleção!
+            </h2>
             <form action="#" class="form collection__form">
-              <label class="form__label" for="fragrance-name">Nome do perfume</label>
+              <label class="form__label" for="fragrance-name"
+                >Nome do perfume</label
+              >
               <input
                 class="form__input"
                 type="text"
@@ -182,7 +190,9 @@
                 required
                 placeholder="Ex: Dior"
               />
-              <label class="form__label" for="concentration">Concentração</label>
+              <label class="form__label" for="concentration"
+                >Concentração</label
+              >
               <input
                 class="form__input"
                 type="text"
@@ -259,93 +269,105 @@
           </ul>
         </section>
         <section class="inspired" id="inspired">
-          <h2 class="section__tittle">Contratipos & Alternativas</h2>
-          <p class="section__subtittle">
+          <h2 class="section__tittle section__tittle_inspired">
+            Contratipos & Alternativas
+          </h2>
+          <p class="section__subtittle section__subtittle_inspired">
             Descubra alternativas que preservam o encanto e a personalidade das
             fragrâncias originais.
           </p>
-          <div class="inspired__content">
-            <ul class="cards cards__inspired">
-              <div class="inspired__cards-box">
-                <li class="card card__inspired">
-                  <div class="card__content">
-                    <h3 class="card__tittle card__title_inspired">Hacivat</h3>
-                    <h4 class="card__subtittle card__subtittle_inspired"">Nishane</h4>
-                    <img
-                      class="card__image_inspired"
-                      src="images/nishane_hacivat.png"
-                      alt="perfume Hacivat de Nishane"
-                    />
-                  </div>
-                </li>
-                </li>
-                <li class="inspired__list_icon">
-                  <img  class="inspired__icon" src="./images/right_arrow.png" alt="" />
-                </li>
-                <li class="card card__inspired">
-                  <div class="card__content">
-                    <h3 class="card__tittle card__title_inspired">Makhatén</h3>
-                    <h4 class="card__subtittle card__subtittle_inspired">In The Box</h4>
-                    <img
-                      class="card__image_inspired"
-                      src="images/inthebox_makhaten.JPG"
-                      alt="perfume Makhatén"
-                    />
-                  </div>
-                </li>
+          <div class="inspired__box">
+            <div class="inspired__card">
+              <h4 class="inspired__card-option">Inspiração</h4>
+              <div class="inspired__image-box">
+                <img
+                  src="images/givenchy_gentleman_reserver_privee.jpg"
+                  alt="Perfume givenchy gentleman reserve prive"
+                  class="inspired__card-image"
+                />
               </div>
-              <div class="inspired__cards-box">
-                <li class="card card__inspired">
-                  <div class="card__content">
-                    <h3 class="card__tittle card__title_inspired">Reserve Privee</h3>
-                    <h4 class="card__subtittle card__subtittle_inspired">Givenchy</h4>
-                    <img
-                      class="card__image_inspired"
-                      src="images/givenchy_gentleman_reserver_privee.jpg"
-                      alt="perfume Versace Pour Homme"
-                    />
-                  </div>
-                </li>
-                <li class="inspired__list_icon">
-                  <img class="inspired__icon" src="./images/right_arrow.png" alt="" />
-                </li>
-                <li class="card card__inspired">
-                  <div class="card__content">
-                    <h3 class="card__tittle card__title_inspired">Aura Elite</h3>
-                    <h4 class="card__subtittle card__subtittle_inspired">Nuancielo</h4>
-                    <img
-                      class="card__image_inspired"
-                      src="images/nuancielo_aura_elite.JPG"
-                      alt="perfume Versace Pour Homme"
-                    />
-                  </div>
-                </li>
-              </div>
-            </ul>
-            <div class="iframe__container">
-              <div class="iframe">
-                <iframe
-                  class="inspired__iframe"
-                  width="560"
-                  height="315"
-                  src="https://www.youtube.com/embed/3vw0NUvGAcM?si=24QDitCXgwt9-xC7"
-                  title="YouTube video player"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
-                ></iframe>
-                <iframe
-                  class="inspired__iframe"
-                  width="560"
-                  height="315"
-                  src="https://www.youtube.com/embed/CSoC-J2JQhY?si=V7j4udE84t89wNZP"
-                  title="YouTube video player"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
-                ></iframe>
-              </div>
+              <h3 class="inspired__card-tittle">Givenchy</h3>
+              <h4 class="inspired__card-subtittle">Gentleman Reserve Privée</h4>
+              <p class="inspired__card-description">
+                Um acorde de uísque encorpado com íris aveludada e madeiras
+                quentes, criando uma fragrância elegante e marcante. Ideal para
+                noites especiais e momentos de presença.
+              </p>
             </div>
+            <div class="inspired__card">
+              <h4 class="inspired__card-option">Contratipo</h4>
+              <div class="inspired__image-box">
+                <img
+                  src="images/nuancielo_aura_elite.JPG"
+                  alt="Perfume givenchy gentleman reserve prive"
+                  class="inspired__card-image"
+                />
+              </div>
+              <h3 class="inspired__card-tittle">Nuancielo</h3>
+              <h4 class="inspired__card-subtittle">Aura Elite</h4>
+              <p class="inspired__card-description">
+                Amadeirado intenso com toque especiado e elegante, unindo força
+                e sofisticação. Uma fragrância marcante para quem quer presença
+                e personalidade.
+              </p>
+            </div>
+            <iframe
+              class="inspired__iframe"
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/CSoC-J2JQhY?si=V7j4udE84t89wNZP"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="inspired__box">
+            <div class="inspired__card">
+              <h4 class="inspired__card-option">Inspiração</h4>
+              <div class="inspired__image-box">
+                <img
+                  src="images/nishane_hacivat.png"
+                  alt="Perfume givenchy gentleman reserve prive"
+                  class="inspired__card-image"
+                />
+              </div>
+
+              <h3 class="inspired__card-tittle">Nishane</h3>
+              <h4 class="inspired__card-subtittle">Hacivat</h4>
+              <p class="inspired__card-description">
+                Um chipre moderno com brilho cítrico, notas amadeiradas
+                refinadas e presença marcante. Elegante, sofisticado e cheio de
+                personalidade.
+              </p>
+            </div>
+            <div class="inspired__card">
+              <h4 class="inspired__card-option">Contratipo</h4>
+              <div class="inspired__image-box">
+                <img
+                  src="images/inthebox_makhaten.JPG"
+                  alt="Perfume givenchy gentleman reserve prive"
+                  class="inspired__card-image"
+                />
+              </div>
+              <h3 class="inspired__card-tittle">In The Box</h3>
+              <h4 class="inspired__card-subtittle">Makathén</h4>
+              <p class="inspired__card-description">
+                Interpretação intensa e cremosa do estilo amadeirado-cítrico,
+                equilibrando frescor e profundidade. Versátil, moderno e
+                extremamente agradável.
+              </p>
+            </div>
+            <iframe
+              class="inspired__iframe"
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/3vw0NUvGAcM?si=24QDitCXgwt9-xC7"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
           </div>
         </section>
       </main>
