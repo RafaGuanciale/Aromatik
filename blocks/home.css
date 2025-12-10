@@ -49,13 +49,38 @@
 .home__geo {
   background-color: #c9b79c;
   width: 100%;
-  height: 362px;
+  height: 25%;
   border-radius: 30px;
   position: absolute;
   bottom: 0;
 }
 
 @media screen and (max-width: 1024px) {
+  .home {
+    min-height: 800px;
+  }
+  .home__title {
+    font-size: 110px;
+  }
+
+  .home__subtitle {
+    font-size: 40px;
+    margin: 0 0 60px 20px;
+  }
+  .home__description {
+    font-size: 24px;
+  }
+  .home__image {
+    max-width: 80%;
+  }
+  .home__geo {
+    height: 25%;
+  }
+}
+
+
+
+@media screen and (max-width: 768px) {
   .home {
     min-height: 642px;
   }
@@ -73,14 +98,10 @@
     line-height: 100%;
   }
   .home__image {
-    max-width: 588px;
+    max-width: 80%;
   }
   .home__geo {
-    background-color: #c9b79c;
-    height: 218px;
-    border-radius: 30px;
-    position: absolute;
-    bottom: 0;
+    height: 25%;
   }
 }
 
@@ -90,7 +111,6 @@
   }
   .home__title {
     font-size: 60px;
-    margin: 0 0 4px;
     text-align: center;
   }
 
@@ -107,6 +127,25 @@
   .home__image {
     max-width: 80%;
   }
+  .home__geo {
+    background-color: #c9b79c;
+    height: 84px;
+    border-radius: 30px;
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .home {
+    min-height: 408px;
+  }
+
+  .home__description {
+    font-size: 14px;
+    text-align: center;
+  }
+
   .home__geo {
     background-color: #c9b79c;
     height: 84px;

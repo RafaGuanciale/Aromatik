@@ -93,7 +93,7 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 425px) {
   .cards {
     grid-template-columns: 1fr;
   }
@@ -115,3 +115,4 @@
     height: 50px;
   }
 }
+

@@ -124,20 +124,20 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 425px) {
   .section__tittle_inspired {
     text-align: center;
     max-width: 100%;
     font-size: 36px;
     line-height: 1;
     font-weight: 600;
-    margin: 0 0 12px;
+    margin: 0;
   }
 
   .section__subtittle_inspired {
     font-size: 18px;
     line-height: 1;
-    margin: 0 5px 34px;
+    margin: 0 auto;
   }
   .inspired {
     grid-template-columns: 1fr;
@@ -145,13 +145,9 @@
       "title "
       "subtitle "
       "content";
-    gap: 40px;
+    gap: 20px;
     padding: 20px 20px;
   }
-  .section__subtittle_inspired {
-    margin: 0 auto 28px;
-  }
-
   .inspired__box {
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -159,6 +155,13 @@
       "card"
       "iframe";
     row-gap: 20px;
-    padding: 15px 10px;
+    padding: 10px 0;
+  }
+  .inspired__card {
+    margin: 0 auto;
+  }
+  .inspired__iframe {
+    max-width: 100%;
+    margin: 0 auto;
   }
 }
