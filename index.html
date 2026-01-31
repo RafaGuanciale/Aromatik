@@ -76,105 +76,20 @@
           </p>
           <div class="collection__box">
             <ul class="cards">
-              <li class="card">
-                <div class="card__content">
-                  <h3 class="card__tittle">Versace</h3>
-                  <h4 class="card__subtittle">Versace Pour Homme</h4>
-                </div>
-                <img
-                  class="card__image"
-                  src="images/Versace_pour_homme.jpeg"
-                  alt="perfume Versace Pour Homme"
-                />
-              </li>
-              <li class="card">
-                <div class="card__content">
-                  <h3 class="card__tittle">Dolce & Gabbana</h3>
-                  <h4 class="card__subtittle">Light Blue</h4>
-                </div>
-                <img
-                  class="card__image"
-                  src="images/dolcegabbana_lightblue.jpg"
-                  alt="perfume Light Blue"
-                />
-              </li>
-              <li class="card">
-                <div class="card__content">
-                  <h3 class="card__tittle">Chanel</h3>
-                  <h4 class="card__subtittle">Bleu de Chanel</h4>
-                </div>
-                <img
-                  class="card__image"
-                  src="images/Bleu.jpg"
-                  alt="perfume Bleu de Chanel"
-                />
-              </li>
-              <li class="card">
-                <div class="card__content">
-                  <h3 class="card__tittle">Narciso Rodriguez</h3>
-                  <h4 class="card__subtittle">Bleu Noir</h4>
-                </div>
-                <img
-                  class="card__image"
-                  src="images/narcisorodriguez_bleu_noir_parfum-redimensionado-para-420x420.jpeg"
-                  alt="perfume Bleu Noir"
-                />
-              </li>
-              <li class="card">
-                <div class="card__content">
-                  <h3 class="card__tittle">Givenchy</h3>
-                  <h4 class="card__subtittle">Gentleman Society EDP</h4>
-                </div>
-                <img
-                  class="card__image"
-                  src="images/givenchy_gentleman_edp-redimensionado-para-420x420.jpeg"
-                  alt="perfume Gentleman Society EDP"
-                />
-              </li>
-              <li class="card">
-                <div class="card__content">
-                  <h3 class="card__tittle">Giorgio Armani</h3>
-                  <h4 class="card__subtittle">Acqua di Gio parfum</h4>
-                </div>
-                <img
-                  class="card__image"
-                  src="images/acqua_di_gio_parfum-redimensionado-para-420x420.jpeg"
-                  alt="perfume Acqua di Gio parfum"
-                />
-              </li>
-              <li class="card">
-                <div class="card__content">
-                  <h3 class="card__tittle">Louis Vuitton</h3>
-                  <h4 class="card__subtittle">Imagination</h4>
-                </div>
-                <img
-                  class="card__image"
-                  src="images/imagination-redimensionado-para-420x420.jpeg"
-                  alt="perfume Acqua di Gio parfum"
-                />
-              </li>
-              <li class="card">
-                <div class="card__content">
-                  <h3 class="card__tittle">Jean-Paul Gautier</h3>
-                  <h4 class="card__subtittle">Ultra Male</h4>
-                </div>
-                <img
-                  class="card__image"
-                  src="images/ultra_male-redimensionado-para-420x420.jpeg"
-                  alt="perfume Acqua di Gio parfum"
-                />
-              </li>
-              <li class="card">
-                <div class="card__content">
-                  <h3 class="card__tittle">Hermes</h3>
-                  <h4 class="card__subtittle">Terre d'Hermès</h4>
-                </div>
-                <img
-                  class="card__image"
-                  src="images/Hermes-Terre-Eau-Givree_vs1-redimensionado-para-420x420.jpeg"
-                  alt="perfume Terre d'Hermès"
-                />
-              </li>
+              <template id="card-template">
+                <li class="card">
+                  <img class="card__image" src="" alt="" />
+                  <button
+                    aria-label="Excluir cartão"
+                    class="card__delete-button"
+                    type="button"
+                  ></button>
+                  <div class="card__content">
+                    <h3 class="card__brand"></h3>
+                    <h4 class="card__name"></h4>
+                  </div>
+                </li>
+              </template>
             </ul>
           </div>
           <div class="collection__add">
@@ -199,16 +114,6 @@
                 id="brand-name"
                 required
                 placeholder="Ex: Dior"
-              />
-              <label class="form__label" for="concentration"
-                >Concentração</label
-              >
-              <input
-                class="form__input"
-                type="text"
-                id="concentration"
-                required
-                placeholder="Ex: EDP"
               />
               <button class="form__button" type="submit">Adicionar</button>
             </form>
@@ -455,10 +360,10 @@
           <button class="profile__edit-btn">Edit</button>
         </div>
         <button
-            aria-label="Fechar pop-up"
-            class="profile__close"
-            type="button"
-          ></button>
+          aria-label="Fechar pop-up"
+          class="profile__close"
+          type="button"
+        ></button>
       </div>
     </div>
     <script src="./script/index.js"></script>

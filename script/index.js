@@ -1,30 +1,89 @@
+const initialCards = [
+  {
+    name: "Light Blue",
+    brand: "Dolce & Gabbana",
+    link: "images/dolcegabbana_lightblue.jpg",
+  },
+  {
+    name: "Bleu de Chanel",
+    brand: "Chanel",
+    link: "images/Bleu.jpg",
+  },
+  {
+    name: "Bleu Noir",
+    brand: "Narciso Rodriguez",
+    link: "images/narcisorodriguez_bleu_noir_parfum-redimensionado-para-420x420.jpeg",
+  },
+  {
+    name: "Acqua di Gio parfum",
+    brand: "Giorgio Armani",
+    link: "images/acqua_di_gio_parfum-redimensionado-para-420x420.jpeg",
+  },
+  {
+    name: "Terre d'Hermès",
+    brand: "Hermes",
+    link: "images/Hermes-Terre-Eau-Givree_vs1-redimensionado-para-420x420.jpeg",
+  },
+];
+
 const profileModal = document.querySelector("#profile-popup");
 const profileBtn = document.querySelector(".profile__button");
 const settingsBtn = document.querySelector(".settings__button");
 const profileName = profileModal.querySelector(".profile__name");
 const profileDescription = profileModal.querySelector(".profile__description");
 const closeProfileBtn = profileModal.querySelector(".profile__close");
+const cardList = document.querySelector(".cards");
+const cardTemplate = document
+  .querySelector("#card-template")
+  .content.querySelector(".card");
 
-profileBtn.addEventListener("click", ()=>{
-    openModal(profileModal);
+profileBtn.addEventListener("click", () => {
+  openModal(profileModal);
 });
-settingsBtn.addEventListener("click", ()=>{
-    openModal(settingsModal);
-});
-
-closeProfileBtn.addEventListener("click", () =>{
-    closeModal(profileModal);
+settingsBtn.addEventListener("click", () => {
+  openModal(settingsModal);
 });
 
-function openModal(modal){
-    modal.classList.add("popup_is-opened")
+closeProfileBtn.addEventListener("click", () => {
+  closeModal(profileModal);
+});
+
+function openModal(modal) {
+  modal.classList.add("popup_is-opened");
 }
 
-function closeModal(modal){
-    modal.classList.remove("popup_is-opened");
+function closeModal(modal) {
+  modal.classList.remove("popup_is-opened");
 }
 
 function fillProfileForm() {
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
 }
+
+function getCardElement(name, brand, link) {
+  const cardElement = cardTemplate.cloneNode(true);
+  const cardName = cardElement.querySelector(".card__name");
+  const cardBrand = cardElement.querySelector(".card__brand");
+  const cardImage = cardElement.querySelector(".card__image");
+  const cardDeleteBtn = cardElement.querySelector(".card__delete-button");
+  cardName.textContent = name;
+  cardBrand.textContent = brand;
+  cardImage.src = link;
+  cardImage.alt = name;
+
+    cardDeleteBtn.addEventListener("click", () =>{
+        cardElement.remove();
+    })
+
+  return cardElement;
+}
+
+function renderCard(name, brand, link, box) {
+  const cardCreated = getCardElement(name, brand, link);
+  box.prepend(cardCreated);
+}
+
+initialCards.forEach((card) => {
+  renderCard(card.name, card.brand, card.link, cardList);
+});
