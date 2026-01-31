@@ -30,17 +30,27 @@
 }
 
 .header__icon {
-  height: 32px;
+  height: 30px;
   object-fit: contain;
   padding: 2px 3px;
   background-color: rgba(199, 200, 179, 0.5);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
+  margin: auto;
 }
 
 .header__icon:hover{
+  background: rgba(0, 0, 0, 0.1);
   cursor: pointer;
 }
+
+.header__buttons {
+  background: transparent center;
+  width: 35px;
+  height: 35px;
+  border: none;
+  padding: 0;
+ }
 
 .header__title {
   font-family: "Playfair Display", serif;
