@@ -27,27 +27,35 @@
   <body>
     <div class="page">
       <header class="header" id="header">
-        <div class="header__overlay">
+        <div class="header__container">
           <h2 class="header__title">Aromatik</h2>
-          <ul class="header__list">
-            <li><a href="#home" class="header__list-button">Home</a></li>
-            <li>
-              <a href="#collection" class="header__list-button">Colletion</a>
-            </li>
-            <li>
-              <a href="#categories" class="header__list-button">Categories</a>
-            </li>
-            <li>
-              <a href="#inspired" class="header__list-button">Inspired</a>
-            </li>
-            <li><a href="#footer" class="header__list-button">About Us</a></li>
-          </ul>
-          <div class="header__icons">
-            <button class="header__buttons profile__button">
-              <img class="header__icon" src="./images/circle-user_brown.png" />
-            </button>
-            <button class="header__buttons settings__button">
-              <img class="header__icon" src="./images/settings.png" />
+
+          <nav class="header__nav">
+            <ul class="header__list">
+              <li><a href="#home" class="header__list-button">Home</a></li>
+              <li>
+                <a href="#collection" class="header__list-button">Colletion</a>
+              </li>
+              <li>
+                <a href="#categories" class="header__list-button">Categories</a>
+              </li>
+              <li>
+                <a href="#inspired" class="header__list-button">Inspired</a>
+              </li>
+              <li>
+                <a href="#footer" class="header__list-button">About Us</a>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="header__actions">
+            <button class="header__action header__action--profile">
+              <img
+                class="header__action-icon"
+                src="./images/circle-user_brown.png"
+                alt="Profile"
+              />
+              <span class="header__action-text">Profile</span>
             </button>
           </div>
         </div>
@@ -60,9 +68,9 @@
             class="home__image"
           />
           <h1 class="home__title">Aromatik</h1>
-          <h2 class="home__subtitle">Sua assinatura olfativa.</h2>
+          <h2 class="home__subtitle">Sua assinatura olfativa</h2>
           <h2 class="home__description">
-            Descubra fragrâncias escolhidas para você.
+            Descubra fragrâncias escolhidas para você!
           </h2>
           <div class="home__geo"></div>
         </section>
@@ -92,31 +100,24 @@
               </template>
             </ul>
           </div>
-          <div class="collection__add">
-            <h2 class="collection__form-title">
-              Adicione um perfume à sua coleção!
-            </h2>
-            <form action="#" class="form collection__form">
-              <label class="form__label" for="fragrance-name"
-                >Nome do perfume</label
-              >
-              <input
-                class="form__input"
-                type="text"
-                id="fragrance-name"
-                required
-                placeholder="Ex: Sauvage"
-              />
-              <label class="form__label" for="brand-name">Nome da marca</label>
-              <input
-                class="form__input"
-                type="text"
-                id="brand-name"
-                required
-                placeholder="Ex: Dior"
-              />
-              <button class="form__button" type="submit">Adicionar</button>
-            </form>
+          <div class="collection__footer">
+            <div class="collection__action-btn">
+              <button class="collection__add-btn">Adicione à coleção</button>
+            </div>
+
+            <div class="collection__summary">
+              <h2 class="section__tittle collection__summary-title">
+                Identidade olfativa
+              </h2>
+              <p class="collection__summary-info">Total de fragrâncias: 8</p>
+              <p class="collection__summary-info">
+                Perfil predominante: Amadeirado aromático
+              </p>
+              <p class="collection__summary-info">
+                Coleção desbalanceada, com excesso de fragrâncias densas e pouca
+                variação de frescor
+              </p>
+            </div>
           </div>
         </section>
         <section class="categories" id="categories">
@@ -357,13 +358,52 @@
           <img class="profile__avatar" src="./images/avatar.jpg" alt="avatar" />
           <h1 class="profile__name">Rafael Guanciale</h1>
           <p class="profile__description">Front-end developer in training</p>
-          <button class="profile__edit-btn">Edit</button>
+          <div class="profile__buttons">
+            <button class="profile__btn profile__edit-btn">Edit</button>
+            <button class="profile__btn profile__settings">
+              Settings <img class="profile__icon" src="./images/settings.png" />
+            </button>
+            <button class="profile__btn profile__leave-btn">Exit</button>
+          </div>
         </div>
         <button
           aria-label="Fechar pop-up"
           class="profile__close"
           type="button"
         ></button>
+      </div>
+      <div class="popup__newCard" id="newCard-popup">
+        <div class="popup__newCard-add">
+          <h2 class="popup__newCard-form-title">
+            Adicione um perfume à sua coleção!
+          </h2>
+          <form action="#" class="form" id="popup__newCard-form">
+            <label class="form__label" for="fragrance-name"
+              >Nome do perfume</label
+            >
+            <input
+              class="form__input form__newCard-name"
+              type="text"
+              id="fragrance-name"
+              required
+              placeholder="Sauvage"
+            />
+            <label class="form__label" for="brand-name">Nome da marca</label>
+            <input
+              class="form__input form__newCard-brand"
+              type="text"
+              id="brand-name"
+              required
+              placeholder="Dior"
+            />
+            <button class="form__button" type="submit">Adicionar</button>
+          </form>
+          <button
+            aria-label="Fechar pop-up"
+            class="popup__close-addCard"
+            type="button"
+          ></button>
+        </div>
       </div>
     </div>
     <script src="./script/index.js"></script>

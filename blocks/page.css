@@ -8,6 +8,10 @@ body {
   position: relative;
 }
 
+.body__no-scroll{
+  overflow: hidden;
+}
+
 .page {
   margin: auto;
   font-family: "Montserrat", sans-serif;

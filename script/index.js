@@ -27,11 +27,17 @@ const initialCards = [
 ];
 
 const profileModal = document.querySelector("#profile-popup");
-const profileBtn = document.querySelector(".profile__button");
+const addCardModal = document.querySelector("#newCard-popup");
+const profileBtn = document.querySelector(".header__action--profile");
+const addCardBtn = document.querySelector(".collection__add-btn");
+const addCardForm = addCardModal.querySelector("#popup__newCard-form");
+const addCardNameInput = addCardForm.querySelector(".form__newCard-name");
+const addCardBrandInput = addCardForm.querySelector(".form__newCard-brand");
 const settingsBtn = document.querySelector(".settings__button");
 const profileName = profileModal.querySelector(".profile__name");
 const profileDescription = profileModal.querySelector(".profile__description");
 const closeProfileBtn = profileModal.querySelector(".profile__close");
+const closeAddBtn = addCardModal.querySelector(".popup__close-addCard")
 const cardList = document.querySelector(".cards");
 const cardTemplate = document
   .querySelector("#card-template")
@@ -40,20 +46,28 @@ const cardTemplate = document
 profileBtn.addEventListener("click", () => {
   openModal(profileModal);
 });
-settingsBtn.addEventListener("click", () => {
-  openModal(settingsModal);
+// settingsBtn.addEventListener("click", () => {
+//   openModal(settingsModal);
+// });
+addCardBtn.addEventListener("click", () => {
+  openModal(addCardModal);
 });
 
 closeProfileBtn.addEventListener("click", () => {
   closeModal(profileModal);
 });
+closeAddBtn.addEventListener("click", () => {
+  closeModal(addCardModal);
+});
 
 function openModal(modal) {
   modal.classList.add("popup_is-opened");
+  document.body.classList.add("body__no-scroll");
 }
 
 function closeModal(modal) {
   modal.classList.remove("popup_is-opened");
+  document.body.classList.remove("body__no-scroll");
 }
 
 function fillProfileForm() {
@@ -72,9 +86,9 @@ function getCardElement(name, brand, link) {
   cardImage.src = link;
   cardImage.alt = name;
 
-    cardDeleteBtn.addEventListener("click", () =>{
-        cardElement.remove();
-    })
+  cardDeleteBtn.addEventListener("click", () => {
+    cardElement.remove();
+  });
 
   return cardElement;
 }
@@ -87,3 +101,16 @@ function renderCard(name, brand, link, box) {
 initialCards.forEach((card) => {
   renderCard(card.name, card.brand, card.link, cardList);
 });
+
+addCardForm.addEventListener("submit", handleCardFormSubmit);
+
+function handleCardFormSubmit(evt){
+  evt.preventDefault();
+  const name = addCardNameInput.value;
+  const brand = addCardBrandInput.value;
+  const link = "images/muhammad-sulyman-MDMrNFnyFQk-unsplash.jpg"
+  renderCard(name, brand, link, cardList);
+  closeModal(addCardModal);
+  evt.target.reset();
+}
+

@@ -16,36 +16,17 @@
   opacity: 0.6;
 }
 
-.profile__edit-btn {
-  color: #342a21;
-  background-color:antiquewhite;
-  padding: 6px 10px;
-  border-radius: 14px;
-  font-size: 16px;
-  font-weight: 500;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-  border: none;
-  cursor: pointer;
-  grid-area: editbtn;
-}
-
-.profile__edit-btn:hover{
-    background-color: rgba(199, 200, 179, 0.8);
-    filter: brightness(0.95);
-}
-
 .profile__info {
   position: absolute;
   top: 50px;
   right: 50px;
   display: grid;
-  height: 570px;
   width: 325px;
   grid-template-areas:
     "avatar avatar avatar"
     "title title title"
     "description description description"
-    ". . editbtn";
+    "profileBtns profileBtns profileBtns";
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto auto auto;
   gap: 25px;
@@ -53,6 +34,77 @@
   border-radius: 30px;
   padding: 10px;
   align-content: start;
+}
+
+.profile__buttons {
+  grid-area: profileBtns;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.profile__btn {
+  width: 110px;
+}
+
+.profile__settings {
+  background-color: antiquewhite;
+  color: #342a21;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  flex-direction: row-reverse;
+}
+
+.profile__icon {
+ height: 30px;
+ object-fit: contain;
+}
+
+.profile__settings:hover {
+  background-color: rgba(199, 200, 179, 0.8);
+  filter: brightness(0.95);
+}
+
+.profile__edit-btn {
+  color: #342a21;
+  background-color: antiquewhite;
+  padding: 6px 10px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  border: none;
+  cursor: pointer;
+}
+
+.profile__edit-btn:hover {
+  background-color: rgba(199, 200, 179, 0.8);
+  filter: brightness(0.95);
+}
+
+.profile__leave-btn {
+  color: #342a21;
+  background-color: antiquewhite;
+  padding: 6px 10px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  border: none;
+  cursor: pointer;
+}
+
+.profile__leave-btn:hover {
+  background-color: rgba(199, 200, 179, 0.8);
+  filter: brightness(0.95);
 }
 
 .profile__avatar {

@@ -1,10 +1,9 @@
 .cards { 
   display: grid;
   grid-gap: 20px;
-  list-style-type: none;
-  grid-template-columns: repeat(5, 1fr);
-  margin: 0;
   padding: 10px;
+  grid-template-columns: repeat(auto-fill, 210px);
+  justify-content: center;
 }
 
 
@@ -17,7 +16,6 @@
   flex-direction: column;
   background-color: #fff;
   overflow: hidden;
-  margin: auto;
 }
 
 .card:hover {
@@ -103,38 +101,4 @@
   opacity: 0.6;
 }
 
-@media screen and (max-width: 1024px) {
-.card {
-    width: 306px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .card {
-    width: 356.5px;
-  }
-}
-
-@media screen and (max-width: 425px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-
-  .card {
-    width: 95%;
-  }
-
-  .card__tittle {
-    font-size: 20px;
-    line-height: 95%;
-    padding-top: 5px;
-  }
-  .card__subtittle {
-    font-size: 16px;
-    padding-bottom: 5px;
-  }
-  .card__image {
-    height: 50px;
-  }
-}
 

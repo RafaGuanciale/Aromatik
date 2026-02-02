@@ -12,10 +12,57 @@
   z-index: 999;
 }
 
+.popup__newCard{
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  display: none;
+  inset: 0;
+  z-index: 999;
+}
+
+.popup__newCard-add {
+  position: relative;
+  max-width: 400px;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+}
+
+.popup__newCard-form-title {
+  text-align: center;
+  font-size: 26px;
+  line-height: 100%;
+  font-weight: 600;
+  color: #342a21;
+  padding: 15px 0 20px;
+}
+
+.popup__newCard-form {
+  max-width: 385px;
+  margin: auto;
+}
+
+
 .popup_is-opened {
   display: flex;
+}
+
+.popup__close-addCard{
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  background: transparent url("../images/close.svg") center no-repeat;
+  background-size: 35px 35px;
+  border: none;
+  cursor: pointer;
 }
 
 .popup__close:hover {
   opacity: 0.6;
 }
+
