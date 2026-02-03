@@ -1,105 +1,123 @@
-# Aromatik 1.3 — Web Development
+# Aromatik 1.5 — Front-end Web App
 
 **visualizar projeto:** https://rafaguanciale.github.io/Aromatik/
 
-O Aromatik é meu projeto pessoal em paralelo às sprints do curso de Web Development da TripleTen. Ele serve como um laboratório onde aplico, versão após versão, tudo o que aprendi até o momento, sempre evoluindo a estrutura, o design, a organização e a clareza do código.
+O Aromatik é um projeto pessoal desenvolvido em paralelo às sprints do curso de Web Development da TripleTen. Ele funciona como um laboratório contínuo de evolução, onde aplico de forma prática os conceitos aprendidos em HTML, CSS e JavaScript, sempre com foco em organização, clareza, escalabilidade e visão de produto.
 
-A versão 1.3 foi desenvolvida como parte da Sprint 4, focando principalmente em:
+A partir da versão 1.5, o Aromatik deixa de ser apenas um site visual e passa a se comportar como um mini app front-end, com estado, interação, modais e leitura de dados da coleção.
 
-- Metodologia BEM aplicada de forma modular
-- Arquitetura de pastas organizada
-- Formulários HTML
-- Estilizações avançadas com CSS
-- Pseudo-classes e efeitos de hover
-- Iframes
-- Layout com Flexbox
-- Padronização visual e refinamento de UI
+Objetivo do Projeto
 
-Além das exigências técnicas, esta versão trouxe um ganho real de maturidade no pensamento estruturado, organização e visão de escalabilidade do projeto, algo essencial para um desenvolvedor de front-end.
+O Aromatik não é um catálogo de perfumes.
+A proposta é funcionar como uma ferramenta de leitura de coleção pessoal, ajudando o usuário a:
+
+- Visualizar sua coleção de forma organizada
+- Entender o perfil predominante das fragrâncias
+- Refletir sobre equilíbrio, uso e identidade olfativa
+- Contextualizar cada perfume dentro do todo
 
 ## Tecnologias Utilizadas
 
 - HTML5
 - CSS3
-- Flexbox
-- Pseudo-classes (hover, focus)
-- Transições CSS (effects suaves)
-- Formulários HTML
-- iFrames
+- Flexbox e Grid Layout
 - Arquitetura modular de CSS
+- JavaScript (DOM, eventos, modais)
+- Templates HTML (<template>)
+- Manipulação dinâmica de DOM
+- Controle de estado visual via classes
 - Metodologia BEM
 - Tipografia com Google Fonts
 
 ## Principais Funcionalidades e Soluções Técnicas
 
-1. Cards da Coleção (Collection)
+1. Coleção de Perfumes (Cards Dinâmicos)
 
-- Redefinição completa dos cards para um estilo mais limpo e minimalista
-- Tamanho reduzido para melhor leitura visual
-- Efeito hover com leve transição (scale e opacidade)
-- Estrutura BEM clara
-- Layout flexível com Flexbox, sem uso de alturas fixas desnecessárias
+- Cards criados dinamicamente a partir de um template HTML
+- Estrutura clara com imagem, marca e nome do perfume
+- Layout responsivo utilizando CSS Grid
+- Hover sutil com transições controladas
+- Remoção de cards com controle correto de eventos (event bubbling)
 
-2. Formulário para adicionar perfumes
+2. Modal de Detalhe do Perfume
 
-- Formulário criado exclusivamente com HTML e CSS, sem JS por enquanto
-- Inputs estilizados com bordas, espaçamento e tipografia consistente
-- Estruturação BEM (form, form__label, form__input)
-- Design minimalista que se integra ao bloco Collection
-- Preparo para versões futuras (como salvar perfumes com JavaScript)
+- Modal individual para cada perfume
+- Overlay com bloqueio de scroll do body
+- Conteúdo estruturado com hierarquia clara:
+- Imagem em destaque
+- Marca e nome
+- Descrição objetiva
+- Labels de perfil, clima e período
+- Papel do perfume dentro da coleção
+- Implementação com event delegation
+- Separação correta entre overlay e conteúdo
+- Botão de fechar posicionado de forma contextual
 
-3. Seção Categorias & Ocasiões
+3. Adição de Perfumes via Modal
 
-- Imagens grandes com aspecto visual forte
-- Efeito de hover destacando a categoria selecionada
-- Ícones brancos sobrepostos, seguindo o tema
-- Layout organizado com Flexbox
-- Elementos centralizados verticalmente e horizontalmente
+- Modal dedicado para adicionar novos perfumes
+- Formulário controlado com JavaScript
+- Criação dinâmica de novos cards
+- Reset do formulário após submissão
+- Estrutura preparada para persistência futura (LocalStorage)
 
-4. Seção Contratipos & Alternativas
+4. Modais Padronizados
 
-- Cards duplos mostrando perfume original + alternativa
-- Ícone de seta centralizado entre eles
-- Cada par organizado em um bloco
-- Iframes preparados nesta seção para exibir vídeos explicativos
-- Será expandido nas próximas versões
+- Funções reutilizáveis para abrir e fechar modais
+- Controle de estado via classes CSS
+- Padronização visual e comportamental entre todos os modais
+- Correção de conflitos de eventos com stopPropagation
+
+5. Estrutura de Layout como App (SPA-like)
+
+- Site estruturado em sections interligadas
+- Navegação fluida sem troca de páginas
+- Compartilhamento de estado visual entre seções
+- Base sólida para evolução até a versão 2.0
 
 ## Aprendizados Pessoais
 
 Esta versão do Aromatik representou uma evolução significativa em organização e clareza de código. Alguns aprendizados importantes:
 
-- Aplicar BEM não apenas nos nomes, mas na estrutura real do projeto
-- Dividir CSS de maneira modular e coerente
-- Criar blocos reutilizáveis e bem separados
-- Pensar no layout como um sistema, não como seções isoladas
-- Escrever CSS mais limpo, menos repetitivo e com mais intenção
-- Controlar bem os efeitos visuais (hover, transições, sombras)
-- Melhorar a leitura do HTML com indentação, padronização e semântica
-- Criar algo visualmente atraente mesmo sem background em design
+- Uso correto de event delegation em listas dinâmicas
+- tendimento profundo de event bubbling e controle de propagação
+- Diferença entre conteúdo e overlay em modais
+- Especificidade e ordem de regras CSS
+- Uso consciente de Grid vs Flexbox
+- Estruturação de componentes reutilizáveis
+- Separação de responsabilidades entre HTML, CSS e JS
+- Pensar UI como parte de um sistema, não como blocos isolados
+- Evolução de pensamento de “site” para “aplicação”
 
-Além da parte técnica, foi uma versão em que percebi que minha visão como dev está se consolidando. Não estou mais apenas “cumprindo tarefas”, mas refletindo sobre como cada decisão afeta o projeto como um todo.
+Além do aspecto técnico, a versão 1.5 marcou uma evolução clara na visão de produto, deixando de focar apenas em layout e passando a refletir sobre uso real, contexto e leitura de dados.
 
 ## Melhorias Futuras (Roadmap)
 
-- Ajustar leves inconsistências visuais entre blocos
-- Padronizar bordas e sombras e outros detalhes visuais (UI refinada)
-- Melhorar efeitos de hover
-- Tornar seções mais fluidas com espaçamentos consistentes
-- Inserir modal de perfume usando JavaScript (Apenas quando chegar no sprint de JS)
-- Implementar responsividade completa
-- Salvar perfumes adicionados no formulário usando LocalStorage (Sprint de JS)
-- Criar páginas individuais para cada perfume
+Aromatik 1.6
+
+- Tornar o conteúdo do modal totalmente dinâmico
+- Estruturar dados dos perfumes para análise
+- Refinar leitura da coleção (equilíbrio, perfil predominante)
+- Pequenos refinamentos de UX
+
+Aromatik 2.0
+
+- Inteligência da coleção baseada em regras
+- Análises automáticas do perfil olfativo
+- Recomendações por contexto (clima, período)
+- Persistência completa com LocalStorage
+- Front-end finalizado como app pessoal
 
 ## Screenshots
 
 Header
-![Header](./images/screenshots/header.jpg)
+![Header](./images/screenshots/profile.modal.JPG)
 
 Coleção
-![Coleção](./images/screenshots/colection.jpg)
+![Coleção](./images/screenshots/collection.JPG)
+
+Card Modal
+![Cards](./images/screenshots/card.modal.JPG)
 
 Categorias
 ![Categorias](./images/screenshots/categories.jpg)
-
-Contratipos
-![Inspirados](./images/screenshots/contratipos.jpg)
