@@ -37,18 +37,19 @@ const settingsBtn = document.querySelector(".settings__button");
 const profileName = profileModal.querySelector(".profile__name");
 const profileDescription = profileModal.querySelector(".profile__description");
 const closeProfileBtn = profileModal.querySelector(".profile__close");
-const closeAddBtn = addCardModal.querySelector(".popup__close-addCard")
+const closeAddBtn = addCardModal.querySelector(".popup__close-addCard");
 const cardList = document.querySelector(".cards");
 const cardTemplate = document
   .querySelector("#card-template")
   .content.querySelector(".card");
+const cardModal = document.querySelector("#card-popup");
+const card = cardList.querySelector(".card");
+const closeCardBtn = cardModal.querySelector(".popup__close-card");
 
 profileBtn.addEventListener("click", () => {
   openModal(profileModal);
 });
-// settingsBtn.addEventListener("click", () => {
-//   openModal(settingsModal);
-// });
+
 addCardBtn.addEventListener("click", () => {
   openModal(addCardModal);
 });
@@ -58,6 +59,16 @@ closeProfileBtn.addEventListener("click", () => {
 });
 closeAddBtn.addEventListener("click", () => {
   closeModal(addCardModal);
+});
+
+closeCardBtn.addEventListener("click", () => {
+  closeModal(cardModal);
+});
+
+cardList.addEventListener("click", (evt) => {
+  const card = evt.target.closest(".card");
+  if (!card) return;
+  openModal(cardModal);
 });
 
 function openModal(modal) {
@@ -86,7 +97,8 @@ function getCardElement(name, brand, link) {
   cardImage.src = link;
   cardImage.alt = name;
 
-  cardDeleteBtn.addEventListener("click", () => {
+  cardDeleteBtn.addEventListener("click", (evt) => {
+    evt.stopPropagation();
     cardElement.remove();
   });
 
@@ -104,13 +116,12 @@ initialCards.forEach((card) => {
 
 addCardForm.addEventListener("submit", handleCardFormSubmit);
 
-function handleCardFormSubmit(evt){
+function handleCardFormSubmit(evt) {
   evt.preventDefault();
   const name = addCardNameInput.value;
   const brand = addCardBrandInput.value;
-  const link = "images/muhammad-sulyman-MDMrNFnyFQk-unsplash.jpg"
+  const link = "images/muhammad-sulyman-MDMrNFnyFQk-unsplash.jpg";
   renderCard(name, brand, link, cardList);
   closeModal(addCardModal);
   evt.target.reset();
 }
-

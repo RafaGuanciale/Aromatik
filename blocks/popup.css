@@ -45,11 +45,6 @@
   margin: auto;
 }
 
-
-.popup_is-opened {
-  display: flex;
-}
-
 .popup__close-addCard{
   width: 25px;
   height: 25px;
@@ -66,3 +61,32 @@
   opacity: 0.6;
 }
 
+.popup__cards{
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  display: none;
+  inset: 0;
+  z-index: 999;
+}
+
+.popup__close-card{
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: transparent url("../images/close.svg") center no-repeat;
+  background-size: 35px 35px;
+  border: none;
+  cursor: pointer;
+}
+
+.popup__close-card:hover {
+  opacity: 0.6;
+}
+
+.popup_is-opened {
+  display: flex;
+}
