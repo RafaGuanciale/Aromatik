@@ -27,6 +27,7 @@ const initialCards = [
 ];
 
 const profileModal = document.querySelector("#profile-popup");
+const loginModal = document.querySelector("#login-popup");
 const addCardModal = document.querySelector("#newCard-popup");
 const profileBtn = document.querySelector(".header__action--profile");
 const addCardBtn = document.querySelector(".collection__add-btn");
@@ -45,24 +46,48 @@ const cardTemplate = document
 const cardModal = document.querySelector("#card-popup");
 const card = cardList.querySelector(".card");
 const closeCardBtn = cardModal.querySelector(".popup__close-card");
+const closeLoginBtn = loginModal.querySelector(".login__close");
+const loginBtn = loginModal.querySelector("#login-button");
+const loginForm = loginModal.querySelector("#login-form");
+const editProfileBtn = profileModal.querySelector(".profile__edit-btn");
+const editProfileModal = document.querySelector("#editProfile-popup");
+const profileNameEdit = editProfileModal.querySelector(".edit__profile-name");
+const profileDescriptionEdit = editProfileModal.querySelector(
+  ".edit__profile-description",
+);
+const profileEditForm = editProfileModal.querySelector("#edit-profile-form");
+const closeProfileEditBtn = editProfileModal.querySelector(".edit__close");
+const exitBtn = profileModal.querySelector(".profile__leave-btn");
+let isLoggedIn = false;
 
 profileBtn.addEventListener("click", () => {
-  openModal(profileModal);
+  if (isLoggedIn) {
+    openModal(profileModal);
+  } else {
+    openModal(loginModal);
+  }
 });
-
+editProfileBtn.addEventListener("click", () => {
+  openModal(editProfileModal);
+  fillEditForm();
+});
 addCardBtn.addEventListener("click", () => {
   openModal(addCardModal);
 });
-
 closeProfileBtn.addEventListener("click", () => {
   closeModal(profileModal);
 });
 closeAddBtn.addEventListener("click", () => {
   closeModal(addCardModal);
 });
-
+closeLoginBtn.addEventListener("click", () => {
+  closeModal(loginModal);
+});
 closeCardBtn.addEventListener("click", () => {
   closeModal(cardModal);
+});
+closeProfileEditBtn.addEventListener("click", () => {
+  closeModal(editProfileModal);
 });
 
 cardList.addEventListener("click", (evt) => {
@@ -74,11 +99,36 @@ cardList.addEventListener("click", (evt) => {
 function openModal(modal) {
   modal.classList.add("popup_is-opened");
   document.body.classList.add("body__no-scroll");
+  document.addEventListener("keydown", handleEscBtn);
+  modal.addEventListener("click", handleOverlayClick);
+  const modalForm = modal.querySelector("form");
+  if (modalForm) {
+    resetForm(modalForm);
+  }
 }
 
 function closeModal(modal) {
   modal.classList.remove("popup_is-opened");
-  document.body.classList.remove("body__no-scroll");
+  const openedModalList = document.querySelectorAll(".popup_is-opened");
+  if (openedModalList.length === 0) {
+    document.removeEventListener("keydown", handleEscBtn);
+    document.body.classList.remove("body__no-scroll");
+  }
+  modal.removeEventListener("click", handleOverlayClick);
+}
+
+function handleOverlayClick(event) {
+  if (event.target === event.currentTarget) {
+    closeModal(event.currentTarget);
+  }
+}
+
+function handleEscBtn(event) {
+  const openedModalList = document.querySelectorAll(".popup_is-opened");
+  const openedModal = openedModalList[openedModalList.length - 1];
+  if (event.key === "Escape" && openedModalList.length > 0) {
+    closeModal(openedModal);
+  }
 }
 
 function fillProfileForm() {
@@ -125,3 +175,58 @@ function handleCardFormSubmit(evt) {
   closeModal(addCardModal);
   evt.target.reset();
 }
+
+function resetForm(elementForm) {
+  elementForm.reset();
+  const elementInputs = elementForm.querySelectorAll(".form__input");
+  elementInputs.forEach((input) => {
+    input.classList.remove("form__input_type__error");
+    input.classList.remove("form__input_type__valid");
+  });
+}
+
+loginForm.addEventListener("submit", (evt) => {
+  evt.preventDefault();
+  isLoggedIn = true;
+  closeModal(loginModal);
+  resetForm(loginForm);
+  updateHeaderUI();
+});
+
+exitBtn.addEventListener("click", (evt) => {
+  const confirmacao = confirm("Tem certeza que deseja sair?");
+  if (!confirmacao) {
+    return;
+  }
+  isLoggedIn = false;
+  closeModal(profileModal);
+  updateHeaderUI();
+});
+
+function updateHeaderUI() {
+  const profileIcon = document.querySelector("#profile-icon");
+  const profileText = document.querySelector(".header__action-text");
+  if (isLoggedIn) {
+    profileIcon.src = "./images/avatar.jpg";
+    profileIcon.classList.add("profile-photo");
+    profileText.textContent = "Profile";
+  } else {
+    profileIcon.src = "./images/circle-user_brown.png";
+    profileIcon.classList.remove("profile-photo");
+    profileText.textContent = "Login";
+  }
+}
+
+function fillEditForm() {
+  profileNameEdit.value = profileName.textContent;
+  profileDescriptionEdit.value = profileDescription.textContent;
+}
+
+function handleProfileFormEditSubmit(evt) {
+  evt.preventDefault();
+  profileName.textContent = profileNameEdit.value;
+  profileDescription.textContent = profileDescriptionEdit.value;
+  closeModal(editProfileModal);
+}
+
+profileEditForm.addEventListener("submit", handleProfileFormEditSubmit);

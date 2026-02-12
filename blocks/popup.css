@@ -11,6 +11,9 @@
   display: none;
   z-index: 999;
 }
+.popup__login{
+  z-index: 999;
+}
 
 .popup__newCard{
   align-items: center;

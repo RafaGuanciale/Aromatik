@@ -1,0 +1,155 @@
+.login__content {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  display: flex;
+  flex-direction: column;
+  height: 533.75px;
+  width: 325px;
+  background-color: #c9b79c;
+  border-radius: 30px;
+  padding: 15px;
+  align-content: start;
+}
+
+.login__form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: stretch;
+  margin: 0 auto;
+}
+
+.login__close {
+  width: 25px;
+  height: 25px;
+  background: transparent url("../images/close.svg") center no-repeat;
+  background-size: 35px 35px;
+  border: none;
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.login__close:hover {
+  opacity: 0.6;
+}
+
+.login__message {
+  font-family: "Montserrat", sans-serif;
+  font-size: 30px;
+  line-height: 100%;
+  font-weight: bold;
+  letter-spacing: 0;
+  color: #342a21;
+  margin-top: 37px;
+  text-align: center;
+}
+
+.login__subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  line-height: 100%;
+  font-weight: 200;
+  color: #342a21;
+  padding: 10px 0 22px;
+  text-align: center;
+}
+
+.login__form-label {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  line-height: 100%;
+  font-weight: medium;
+  color: #342a21;
+}
+
+.login__form-input {
+  margin: 12px 0;
+  height: 45px;
+  width: 100%;
+  align-self: center;
+  border-radius: 10px;
+  background-color: antiquewhite;
+  font-size: 15px;
+  padding-left: 45px;
+  padding-right: 45px;
+  box-sizing: border-box;
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.login__form-input:focus {
+  outline: 2px solid rgba(52, 42, 33, 0.3);
+  outline-offset: 2px;
+}
+
+.form__input_type__error {
+  box-shadow: 0 0 6px rgba(255, 0, 0, 0.6);
+}
+
+.form__input_type__valid {
+  box-shadow: 0 0 9px rgb(8, 129, 8);
+}
+
+.login__form-input-username {
+  background-image: url("../images/Vector.png");
+  background-repeat: no-repeat;
+  background-position: 12px center;
+}
+
+.login__form-input-passwordkey {
+  background-image: url("../images/key.png");
+  background-repeat: no-repeat;
+  background-position: 12px center;
+}
+
+.login__password-img {
+  margin: 0;
+  padding: 0;
+}
+
+.login__input-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.login__password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  line-height: 0;
+  font-size: 0;
+}
+
+.login__forgot-password {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  line-height: 100%;
+  font-weight: lighter;
+  text-decoration: none;
+  color: #342a21;
+  position: relative;
+  align-self: flex-end;
+  display: inline-block;
+  color: #342a21;
+  transition: color 0.2s ease, transform 0.2s ease;
+  margin: 10px 0 24px;
+}
+.login__forgot-password:hover {
+  color: #5a4634;
+  transform: translateX(2px);
+}
+
+.login__form-button {
+  width: 100%;
+  border-radius: 15px;
+}

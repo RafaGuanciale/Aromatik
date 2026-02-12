@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aromatik 1.5</title>
+    <title>Aromatik 1.6</title>
     <link rel="icon" type="image/png" href="images\aromatik_icon.png" />
     <meta
       name="description"
@@ -32,7 +32,9 @@
 
           <nav class="header__nav">
             <ul class="header__list">
-              <li><a href="#home" class="header__list-button">Home</a></li>
+              <li>
+                <a href="#home" class="header__list-button">Home</a>
+              </li>
               <li>
                 <a href="#collection" class="header__list-button">Colletion</a>
               </li>
@@ -51,11 +53,12 @@
           <div class="header__actions">
             <button class="header__action header__action--profile">
               <img
+                id="profile-icon"
                 class="header__action-icon"
                 src="./images/circle-user_brown.png"
                 alt="Profile"
               />
-              <span class="header__action-text">Profile</span>
+              <span class="header__action-text">Login</span>
             </button>
           </div>
         </div>
@@ -353,13 +356,76 @@
           </div>
         </div>
       </footer>
+      <div class="popup popup__login" id="login-popup">
+        <div class="login__content">
+          <button
+            aria-label="Fechar pop-up"
+            class="login__close"
+            type="button"
+          ></button>
+          <div class="login__welcome">
+            <h3 class="login__message">Welcome Back!</h3>
+            <p class="login__subtitle">We missed you</p>
+          </div>
+          <form class="login__form form" id="login-form">
+            <label class="login__form-label" for="username">Username</label>
+            <input
+              class="form__input login__form-input login__form-input-username"
+              name="username"
+              placeholder="Username"
+              type="text"
+              id="username"
+              minlength="8"
+              maxlength="20"
+              required
+            />
+            <span class="username-input-error form__input-error"></span>
+            <div class="login__form-password">
+              <label class="login__form-label" for="password">Password</label>
+              <div class="login__input-wrap">
+                <input
+                  class="form__input login__form-input login__form-input-passwordkey"
+                  name="password"
+                  placeholder="Password"
+                  type="password"
+                  id="password"
+                  minlength="8"
+                  maxlength="12"
+                  required
+                />
+                <button type="button" class="login__password-toggle">
+                  <img
+                    class="login__password-img"
+                    src="images/lookPassw.png"
+                    alt="mostrar senha"
+                  />
+                </button>
+              </div>
+              <span class="password-input-error form__input-error"></span>
+            </div>
+            <a href="" class="login__forgot-password">Forgot Password?</a>
+            <button
+              class="form__button login__form-button"
+              type="submit"
+              id="login-button"
+            >
+              Sign in
+            </button>
+          </form>
+        </div>
+      </div>
       <div class="popup" id="profile-popup">
         <div class="profile__info">
           <img class="profile__avatar" src="./images/avatar.jpg" alt="avatar" />
           <h1 class="profile__name">Rafael Guanciale</h1>
           <p class="profile__description">Front-end developer in training</p>
           <div class="profile__buttons">
-            <button class="profile__btn profile__edit-btn">Edit</button>
+            <button
+              class="profile__btn profile__edit-btn"
+              id="edit-profile-btn"
+            >
+              Edit
+            </button>
             <button class="profile__btn profile__settings">
               Settings <img class="profile__icon" src="./images/settings.png" />
             </button>
@@ -372,7 +438,7 @@
           type="button"
         ></button>
       </div>
-      <div class="popup__newCard" id="newCard-popup">
+      <div class="popup popup__newCard" id="newCard-popup">
         <div class="popup__newCard-add">
           <h2 class="popup__newCard-form-title">
             Adicione um perfume à sua coleção!
@@ -387,6 +453,8 @@
               id="fragrance-name"
               required
               placeholder="Sauvage"
+              minlength="3"
+              maxlength="15"
             />
             <label class="form__label" for="brand-name">Nome da marca</label>
             <input
@@ -395,6 +463,8 @@
               id="brand-name"
               required
               placeholder="Dior"
+              minlength="3"
+              maxlength="15"
             />
             <button class="form__button" type="submit">Adicionar</button>
           </form>
@@ -405,7 +475,7 @@
           ></button>
         </div>
       </div>
-      <div class="popup__cards" id="card-popup">
+      <div class="popup popup__cards" id="card-popup">
         <div class="card__modal">
           <button
             aria-label="Fechar pop-up"
@@ -432,12 +502,50 @@
             </ul>
             <div class="cardModal__role">
               <h2 class="cardModal__role-title">Papel na coleção</h2>
-              <p class="cardModal__role-text">Pilar da coleção para uso adulto e equilibrado; funciona como contraponto sóbrio a fragrâncias mais intensas ou noturnas, trazendo maturidade e assinatura pessoal sem excesso.</p>
+              <p class="cardModal__role-text">
+                Pilar da coleção para uso adulto e equilibrado; funciona como
+                contraponto sóbrio a fragrâncias mais intensas ou noturnas,
+                trazendo maturidade e assinatura pessoal sem excesso.
+              </p>
             </div>
           </div>
         </div>
       </div>
+      <div class="popup popup__edit-profile" id="editProfile-popup">
+        <div class="edit-profile__content">
+          <button
+            aria-label="Fechar pop-up"
+            class="edit__close"
+            type="button"
+          ></button>
+          <div class="edit__text">
+            <h3 class="edit__message">Editar Perfil</h3>
+          </div>
+          <form class="edit-profile__form form" id="edit-profile-form" action="">
+            <label class="edit__form-label" for="edit-name">Nome</label>
+            <input
+              class="form__input edit__profile-name"
+              name="edit-name"
+              type="text"
+              required
+              minlength="4"
+              maxlength="30""
+            />
+            <label class="edit__form-label" for="edit-description">Descrição</label>
+            <input
+              class="form__input edit__profile-description"
+              name="edit-description"
+              type="text"
+              required
+              minlength="2"
+              maxlength="40"
+            />
+            <button class="form__button edit__form-button" type="submit" id="edit-profile_submit-btn">Editar</button>
+          </form>
+        </div>
+      </div>
     </div>
     <script src="./script/index.js"></script>
+    <script src="./script/validation.js"></script>
   </body>
 </html>

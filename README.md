@@ -1,10 +1,16 @@
-# Aromatik 1.5 — Front-end Web App
+# Aromatik 1.6 — Front-end Web App
 
 **visualizar projeto:** https://rafaguanciale.github.io/Aromatik/
 
 O Aromatik é um projeto pessoal desenvolvido em paralelo às sprints do curso de Web Development da TripleTen. Ele funciona como um laboratório contínuo de evolução, onde aplico de forma prática os conceitos aprendidos em HTML, CSS e JavaScript, sempre com foco em organização, clareza, escalabilidade e visão de produto.
 
-A partir da versão 1.5, o Aromatik deixa de ser apenas um site visual e passa a se comportar como um mini app front-end, com estado, interação, modais e leitura de dados da coleção.
+A partir da versão 1.6, o Aromatik deixa de ser apenas um site interativo e passa a se comportar como uma aplicação front-end com:
+
+- Controle de estado
+- Interface reativa
+- Sistema de modais empilháveis
+- Validação dinâmica de formulários
+- Simulação de autenticação
 
 Objetivo do Projeto
 
@@ -22,16 +28,42 @@ A proposta é funcionar como uma ferramenta de leitura de coleção pessoal, aju
 - CSS3
 - Flexbox e Grid Layout
 - Arquitetura modular de CSS
-- JavaScript (DOM, eventos, modais)
-- Templates HTML (<template>)
+- JavaScript (ES6+)
 - Manipulação dinâmica de DOM
-- Controle de estado visual via classes
+- Templates HTML (<template>)
+- Controle de estado com variável booleana
+- Validação nativa de formulário (validity)
+- Sistema de modais reutilizável
 - Metodologia BEM
-- Tipografia com Google Fonts
+- Google Fonts
 
 ## Principais Funcionalidades e Soluções Técnicas
 
-1. Coleção de Perfumes (Cards Dinâmicos)
+1. Sistema de Autenticação (UI-only)
+
+- Modal de login com validação dinâmica
+- Feedback visual em tempo real 
+- Simulação de estado de usuário logado via variável
+- Header reativo ao estado
+- Logout com confirmação
+- Separação clara entre mudança de estado e atualização da UI
+
+2. Sistema de Modais Empilháveis
+
+- Funções reutilizáveis
+- Controle de scroll do body
+- Fechamento via overlay e ESC
+- Lógica de fechamento do último modal aberto (Stack behavior)
+- Remoçào segura de listeneres apenas quando o último modal é fechado
+
+3. Edição de perfil
+
+- Modal dedicado para edição
+- Preenchimento automático do formulário com dados atuais
+- Atualização dinâmica do nome e descrição no profile
+- Separação entre leitura e escrita de dados
+
+4. Coleção de Perfumes (Cards Dinâmicos)
 
 - Cards criados dinamicamente a partir de um template HTML
 - Estrutura clara com imagem, marca e nome do perfume
@@ -39,21 +71,7 @@ A proposta é funcionar como uma ferramenta de leitura de coleção pessoal, aju
 - Hover sutil com transições controladas
 - Remoção de cards com controle correto de eventos (event bubbling)
 
-2. Modal de Detalhe do Perfume
-
-- Modal individual para cada perfume
-- Overlay com bloqueio de scroll do body
-- Conteúdo estruturado com hierarquia clara:
-- Imagem em destaque
-- Marca e nome
-- Descrição objetiva
-- Labels de perfil, clima e período
-- Papel do perfume dentro da coleção
-- Implementação com event delegation
-- Separação correta entre overlay e conteúdo
-- Botão de fechar posicionado de forma contextual
-
-3. Adição de Perfumes via Modal
+5. Adição de Perfumes via Modal
 
 - Modal dedicado para adicionar novos perfumes
 - Formulário controlado com JavaScript
@@ -61,44 +79,36 @@ A proposta é funcionar como uma ferramenta de leitura de coleção pessoal, aju
 - Reset do formulário após submissão
 - Estrutura preparada para persistência futura (LocalStorage)
 
-4. Modais Padronizados
+## Decisões Arquiteturais Importantes
 
-- Funções reutilizáveis para abrir e fechar modais
-- Controle de estado via classes CSS
-- Padronização visual e comportamental entre todos os modais
-- Correção de conflitos de eventos com stopPropagation
-
-5. Estrutura de Layout como App (SPA-like)
-
-- Site estruturado em sections interligadas
-- Navegação fluida sem troca de páginas
-- Compartilhamento de estado visual entre seções
-- Base sólida para evolução até a versão 2.0
+- Separação entre lógica de validação e lógica de aplicação
+- Interface controlada por estado
+- Centralização de atualização visual em função única
+- Tratamento correto de múltiplos modais
+- Evitar duplicação de listeners
 
 ## Aprendizados Pessoais
 
-Esta versão do Aromatik representou uma evolução significativa em organização e clareza de código. Alguns aprendizados importantes:
+A versão 1.6 marcou uma evolução significativa no pensamento estrutural:
 
-- Uso correto de event delegation em listas dinâmicas
-- tendimento profundo de event bubbling e controle de propagação
-- Diferença entre conteúdo e overlay em modais
-- Especificidade e ordem de regras CSS
-- Uso consciente de Grid vs Flexbox
-- Estruturação de componentes reutilizáveis
-- Separação de responsabilidades entre HTML, CSS e JS
-- Pensar UI como parte de um sistema, não como blocos isolados
-- Evolução de pensamento de “site” para “aplicação”
+- Entendimento real de event bubbling
+- Controle de múltiplos modais simultâneos
+- Gerenciamento de estado em aplicações frond-end
+- Separação de responsabilidades
+- UI ORIENTADA POR ESTADO
+- Uso correto de querySelectorAll para comportamento em pilha
+- Estruturação mais limpa de funções reutilizáveis
 
-Além do aspecto técnico, a versão 1.5 marcou uma evolução clara na visão de produto, deixando de focar apenas em layout e passando a refletir sobre uso real, contexto e leitura de dados.
+Houve uma transição de mentalidade:
+De "site com modais" para "aplicação com estado e fluxo controlado".
 
 ## Melhorias Futuras (Roadmap)
 
-Aromatik 1.6
+Aromatik 1.7
 
-- Tornar o conteúdo do modal totalmente dinâmico
-- Estruturar dados dos perfumes para análise
-- Refinar leitura da coleção (equilíbrio, perfil predominante)
-- Pequenos refinamentos de UX
+- Persistência de login possivelmente com LocalStorage
+- Refatorar a validação para função reutilizável
+- Implementar estrutura de dados em objetos
 
 Aromatik 2.0
 
@@ -111,6 +121,7 @@ Aromatik 2.0
 ## Screenshots
 
 Header
+![Header](./images/screenshots/Login.JPG)
 ![Header](./images/screenshots/profile.modal.JPG)
 
 Coleção
