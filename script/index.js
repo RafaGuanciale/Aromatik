@@ -133,7 +133,7 @@ function handleEscBtn(event) {
 
 function fillProfileForm() {
   nameInput.value = profileName.textContent;
-  jobInput.value = profileJob.textContent;
+  jobInput.value = profileDescription.textContent;
 }
 
 function getCardElement(name, brand, link) {

@@ -1,0 +1,10 @@
+.categoriesPopup__content {
+    height: 50%;
+    width: 50%;
+  margin: auto;
+  background-color: #7f907c;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}

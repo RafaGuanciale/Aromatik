@@ -64,6 +64,22 @@
   opacity: 0.6;
 }
 
+/* .inspired__close{
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background: transparent url("../images/close.svg") center no-repeat;
+  background-size: 35px 35px;
+  border: none;
+  cursor: pointer;
+}
+
+.inspired__close:hover {
+  opacity: 0.6;
+} */
+
 .popup__cards{
   align-items: center;
   justify-content: center;

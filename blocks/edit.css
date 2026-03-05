@@ -1,4 +1,4 @@
-.edit-profile__content {
+.profile-edit__content {
   position: absolute;
   top: 50px;
   right: 420px;
@@ -12,7 +12,7 @@
   align-content: start;
 }
 
-.edit__close {
+.profile-edit__close {
   width: 25px;
   height: 25px;
   background: transparent url("../images/close.svg") center no-repeat;
@@ -26,11 +26,11 @@
   cursor: pointer;
 }
 
-.edit__close:hover {
+.profile-edit__close:hover {
   opacity: 0.6;
 }
 
-.edit__form-button {
+.profile-edit__form-button {
   width: 100%;
   border-radius: 15px;
 }

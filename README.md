@@ -1,10 +1,10 @@
-# Aromatik 1.6 — Front-end Web App
+# Aromatik 1.8 — Front-end Web App
 
 **visualizar projeto:** https://rafaguanciale.github.io/Aromatik/
 
 O Aromatik é um projeto pessoal desenvolvido em paralelo às sprints do curso de Web Development da TripleTen. Ele funciona como um laboratório contínuo de evolução, onde aplico de forma prática os conceitos aprendidos em HTML, CSS e JavaScript, sempre com foco em organização, clareza, escalabilidade e visão de produto.
 
-A partir da versão 1.6, o Aromatik deixa de ser apenas um site interativo e passa a se comportar como uma aplicação front-end com:
+A partir da versão **1.8**, o projeto consolida a base como um **mini app front-end orientado a objetos**, com **classes reutilizáveis**, **index enxuto orquestrando** e **UI guiada por estado**.
 
 - Controle de estado
 - Interface reativa
@@ -12,111 +12,81 @@ A partir da versão 1.6, o Aromatik deixa de ser apenas um site interativo e pas
 - Validação dinâmica de formulários
 - Simulação de autenticação
 
-Objetivo do Projeto
+## Objetivo do projeto
 
-O Aromatik não é um catálogo de perfumes.
+O Aromatik **não é um catálogo de perfumes**.  
 A proposta é funcionar como uma ferramenta de leitura de coleção pessoal, ajudando o usuário a:
 
-- Visualizar sua coleção de forma organizada
-- Entender o perfil predominante das fragrâncias
-- Refletir sobre equilíbrio, uso e identidade olfativa
-- Contextualizar cada perfume dentro do todo
+- Visualizar a coleção de forma organizada
+- Entender padrões e “perfil predominante” da coleção
+- Contextualizar fragrâncias por uso/ocasião
+- Manter uma experiência de navegação com modais e fluxo de aplicação
 
 ## Tecnologias Utilizadas
 
-- HTML5
-- CSS3
-- Flexbox e Grid Layout
-- Arquitetura modular de CSS
-- JavaScript (ES6+)
-- Manipulação dinâmica de DOM
-- Templates HTML (<template>)
-- Controle de estado com variável booleana
-- Validação nativa de formulário (validity)
-- Sistema de modais reutilizável
+- HTML5 
+- CSS3 
 - Metodologia BEM
+- Arquitetura modular de CSS (por blocos)
+- JavaScript (ES6+)
+- Manipulação de DOM
+- POO com classes (ES Modules)
+- Validação de formulários (FormValidator)
+- Sistema de modais reutilizável (Popup / PopupWithForm)
 - Google Fonts
 
-## Principais Funcionalidades e Soluções Técnicas
+## Principais funcionalidades e soluções técnicas
 
-1. Sistema de Autenticação (UI-only)
+1. **Sistema de modais reutilizável (POO)**
+- Classe `Popup` responsável por abrir/fechar, overlay e ESC
+- Controle de scroll do body ao abrir modal
+- Fechamento correto do **último modal aberto** ao pressionar ESC (comportamento em pilha)
 
-- Modal de login com validação dinâmica
-- Feedback visual em tempo real 
-- Simulação de estado de usuário logado via variável
-- Header reativo ao estado
-- Logout com confirmação
-- Separação clara entre mudança de estado e atualização da UI
+2. **Formulários com classe genérica (`PopupWithForm`)**
+- Captura de dados via `name=""` dos inputs 
+- Handlers no `index.js` ficam responsáveis apenas pela regra de negócio
+- Reset do form no `close()` (comportamento consistente)
 
-2. Sistema de Modais Empilháveis
+3. **Coleção (cards) com `Section` + `Card`**
+- Renderização inicial por `Section` a partir de `cardData`
+- `Card` gera o elemento via template e registra listeners internos
+- Remoção de card com confirmação e controle correto de propagação de evento
 
-- Funções reutilizáveis
-- Controle de scroll do body
-- Fechamento via overlay e ESC
-- Lógica de fechamento do último modal aberto (Stack behavior)
-- Remoçào segura de listeneres apenas quando o último modal é fechado
+4. **Edição de perfil com `UserInfo`**
+- `getUserInfo()` para preencher o form com os dados atuais
+- `setUserInfo()` para atualizar UI com os valores enviados pelo popup
 
-3. Edição de perfil
+5. **UI reativa ao login (`HeaderUi`)**
+- Header muda ícone, classe e texto conforme estado (`loggedIn()` / `loggedOut()`)
+- Login e logout alteram o estado e chamam a atualização visual
 
-- Modal dedicado para edição
-- Preenchimento automático do formulário com dados atuais
-- Atualização dinâmica do nome e descrição no profile
-- Separação entre leitura e escrita de dados
+6. **Refactor de conteúdo “Inspired”**
+- Remoção da section fixa “Inspired”
+- Transformação em **modal** (abre a partir da área de categorias), melhorando o fluxo de navegação
 
-4. Coleção de Perfumes (Cards Dinâmicos)
+## Decisões arquiteturais
 
-- Cards criados dinamicamente a partir de um template HTML
-- Estrutura clara com imagem, marca e nome do perfume
-- Layout responsivo utilizando CSS Grid
-- Hover sutil com transições controladas
-- Remoção de cards com controle correto de eventos (event bubbling)
+- `index.js` como **orquestrador**: instâncias + listeners + bootstrap
+- Classes com responsabilidade única:
+- `Popup` (comportamento base de modal)
+- `PopupWithForm` (submit e coleta de inputs)
+- `Section` (render/gestão do container)
+- `Card` (template + listeners internos)
+- `UserInfo` (leitura/escrita de dados do perfil)
+- `HeaderUi` (estado visual do header)
 
-5. Adição de Perfumes via Modal
+## Aprendizados pessoais
 
-- Modal dedicado para adicionar novos perfumes
-- Formulário controlado com JavaScript
-- Criação dinâmica de novos cards
-- Reset do formulário após submissão
-- Estrutura preparada para persistência futura (LocalStorage)
+- Construção de classes “do zero” (estrutura, responsabilidade e API)
+- Redução de acoplamento: inputs por `name` e coleta pelo próprio form
+- Separação real entre **UI**, **estado** e **orquestração**
+- Evolução de “site com modais” para “aplicação com fluxo controlado”
 
-## Decisões Arquiteturais Importantes
+## Melhorias futuras (roadmap)
 
-- Separação entre lógica de validação e lógica de aplicação
-- Interface controlada por estado
-- Centralização de atualização visual em função única
-- Tratamento correto de múltiplos modais
-- Evitar duplicação de listeners
-
-## Aprendizados Pessoais
-
-A versão 1.6 marcou uma evolução significativa no pensamento estrutural:
-
-- Entendimento real de event bubbling
-- Controle de múltiplos modais simultâneos
-- Gerenciamento de estado em aplicações frond-end
-- Separação de responsabilidades
-- UI ORIENTADA POR ESTADO
-- Uso correto de querySelectorAll para comportamento em pilha
-- Estruturação mais limpa de funções reutilizáveis
-
-Houve uma transição de mentalidade:
-De "site com modais" para "aplicação com estado e fluxo controlado".
-
-## Melhorias Futuras (Roadmap)
-
-Aromatik 1.7
-
-- Persistência de login possivelmente com LocalStorage
-- Refatorar a validação para função reutilizável
-- Implementar estrutura de dados em objetos
-
-Aromatik 2.0
-
-- Inteligência da coleção baseada em regras
-- Análises automáticas do perfil olfativo
-- Recomendações por contexto (clima, período)
-- Persistência completa com LocalStorage
-- Front-end finalizado como app pessoal
+- Persistência de login e coleção (ex.: LocalStorage)
+- Modal de card dinâmico (abrir com dados do card clicado)
+- Ajustes finos de responsividade e microinterações (transições/feedback)
 
 ## Screenshots
 
