@@ -48,10 +48,9 @@ class Api {
       .catch((error) => console.log(error));
   }
   checkApi() {
-    return fetch(this._baseUrl)
+    return fetch(`${this._url}`)
       .then((res) => res.ok)
       .catch(() => {
-        // evita log desnecessário
         return false;
       });
   }
