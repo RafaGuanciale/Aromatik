@@ -1,7 +1,8 @@
 export default class Card {
-  constructor(cardData, cardConfig) {
+  constructor(cardData, cardConfig, handleDelete) {
     this._cardData = cardData;
     this._cardConfig = cardConfig;
+    this._handleDelete = handleDelete;
   }
 
   _getTemplate() {
@@ -26,14 +27,15 @@ export default class Card {
     this._element
       .querySelector(this._cardConfig.deleteButton)
       .addEventListener("click", (evt) => {
+        evt.stopPropagation();
         this._handleDelete(evt);
       });
   }
 
-  _handleDelete(evt) {
-    evt.stopPropagation();
+  removeCard() {
     if (confirm("Tem certeza que deseja excluir este card?")) {
       this._element.remove();
+      this._element = null;
     }
   }
 }

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aromatik 1.8</title>
+    <title>Aromatik 1.9</title>
     <link rel="icon" type="image/png" href="images\aromatik_icon.png" />
     <meta
       name="description"
@@ -42,9 +42,6 @@
                 <a href="#categories" class="header__list-button">Categories</a>
               </li>
               <li>
-                <a href="#inspired" class="header__list-button">Inspired</a>
-              </li>
-              <li>
                 <a href="#footer" class="header__list-button">About Us</a>
               </li>
             </ul>
@@ -81,119 +78,123 @@
           <div class="home__geo"></div>
         </section>
         <section class="collection" id="collection">
-          <h2 class="section__tittle section__tittle_collection">
-            Minha Coleção
-          </h2>
-          <p class="section__subtittle section__subtittle_collection">
-            Sua coleção, sua identidade. Um retrato olfativo das fragrâncias que
-            definem seu gosto, sua presença e sua história.
-          </p>
-          <div class="collection__box">
-            <ul class="cards">
-              <template id="card-template">
-                <li class="card">
-                  <img class="card__image" src="" alt="" />
-                  <button
-                    aria-label="Excluir cartão"
-                    class="card__delete-button"
-                    type="button"
-                  ></button>
-                  <div class="card__content">
-                    <h3 class="card__brand"></h3>
-                    <h4 class="card__name"></h4>
-                  </div>
-                </li>
-              </template>
-            </ul>
-          </div>
-          <div class="collection__footer">
-            <div class="collection__action-btn">
-              <button class="collection__add-btn" id="new-card-btn">
-                Adicione à coleção
-              </button>
-              <button class="collection__inspired-btn" id="inspired-btn">
-                Contratipo sugerido
-              </button>
+          <div class="collection__containter">
+            <h2 class="section__tittle section__tittle_collection">
+              Minha Coleção
+            </h2>
+            <p class="section__subtittle section__subtittle_collection">
+              Sua coleção, sua identidade. Um retrato olfativo das fragrâncias
+              que definem seu gosto, sua presença e sua história.
+            </p>
+            <div class="collection__box">
+              <ul class="cards">
+                <template id="card-template">
+                  <li class="card">
+                    <img class="card__image" src="" alt="" />
+                    <button
+                      aria-label="Excluir cartão"
+                      class="card__delete-button"
+                      type="button"
+                    ></button>
+                    <div class="card__content">
+                      <h3 class="card__name"></h3>
+                      <h4 class="card__brand"></h4>
+                    </div>
+                  </li>
+                </template>
+              </ul>
             </div>
+            <div class="collection__footer">
+              <div class="collection__action-btn">
+                <button class="collection__add-btn" id="new-card-btn">
+                  Adicione à coleção
+                </button>
+                <button class="collection__inspired-btn" id="inspired-btn">
+                  Contratipo sugerido
+                </button>
+              </div>
 
-            <div class="collection__summary">
-              <h2 class="section__tittle collection__summary-title">
-                Identidade olfativa
-              </h2>
-              <p class="collection__summary-info">Total de fragrâncias: 8</p>
-              <p class="collection__summary-info">
-                Perfil predominante: Amadeirado aromático
-              </p>
-              <p class="collection__summary-info">
-                Coleção desbalanceada, com excesso de fragrâncias densas e pouca
-                variação de frescor
-              </p>
+              <div class="collection__summary">
+                <h2 class="section__tittle collection__summary-title">
+                  Identidade olfativa
+                </h2>
+                <p class="collection__summary-info">Total de fragrâncias: 8</p>
+                <p class="collection__summary-info">
+                  Perfil predominante: Amadeirado aromático
+                </p>
+                <p class="collection__summary-info">
+                  Coleção desbalanceada, com excesso de fragrâncias densas e
+                  pouca variação de frescor
+                </p>
+              </div>
             </div>
           </div>
         </section>
         <section class="categories" id="categories">
-          <h2 class="section__tittle section__tittle_categories">
-            Categorias & Ocasiões
-          </h2>
-          <p class="section__subtittle section__subtittle_categories">
-            Descubra fragrâncias ideais para cada momento do seu dia e deixe o
-            perfume traduzir quem você é em cada ocasião.
-          </p>
-          <ul class="categories__list">
-            <li class="categories__cards" id="categories-cards">
-              <div class="categories__content">
-                <img
-                  class="categories__images"
-                  src="./images/work-redimensionado-para-450x600.jpeg"
-                  alt=""
-                />
-                <div>
+          <div class="categories__container">
+            <h2 class="section__tittle section__tittle_categories">
+              Categorias & Ocasiões
+            </h2>
+            <p class="section__subtittle section__subtittle_categories">
+              Descubra fragrâncias ideais para cada momento do seu dia e deixe o
+              perfume traduzir quem você é em cada ocasião.
+            </p>
+            <ul class="categories__list">
+              <li class="categories__cards" id="categories-cards">
+                <div class="categories__content">
+                  <img
+                    class="categories__images"
+                    src="./images/work-redimensionado-para-450x600.jpeg"
+                    alt=""
+                  />
+                  <div>
+                    <a class="categories__link" href=""
+                      ><img
+                        class="categories__link-icon"
+                        src="./images/briefcase_white.png"
+                        alt=""
+                      />
+                      <p class="categories__link-text">Trabalho</p></a
+                    >
+                  </div>
+                </div>
+              </li>
+              <li class="categories__cards" id="categories-cards">
+                <div class="categories__content">
+                  <img
+                    class="categories__images"
+                    src="./images/gym-redimensionado-para-450x600.jpeg"
+                    alt=""
+                  />
                   <a class="categories__link" href=""
                     ><img
                       class="categories__link-icon"
-                      src="./images/briefcase_white.png"
+                      src="./images/gym_icon_white.png"
                       alt=""
                     />
-                    <p class="categories__link-text">Trabalho</p></a
+                    <p class="categories__link-text">Academia</p></a
                   >
                 </div>
-              </div>
-            </li>
-            <li class="categories__cards" id="categories-cards">
-              <div class="categories__content">
-                <img
-                  class="categories__images"
-                  src="./images/gym-redimensionado-para-450x600.jpeg"
-                  alt=""
-                />
-                <a class="categories__link" href=""
-                  ><img
-                    class="categories__link-icon"
-                    src="./images/gym_icon_white.png"
+              </li>
+              <li class="categories__cards" id="categories-cards">
+                <div class="categories__content">
+                  <img
+                    class="categories__images"
+                    src="./images/date-redimensionado-para-450x600.jpeg"
                     alt=""
                   />
-                  <p class="categories__link-text">Academia</p></a
-                >
-              </div>
-            </li>
-            <li class="categories__cards" id="categories-cards">
-              <div class="categories__content">
-                <img
-                  class="categories__images"
-                  src="./images/date-redimensionado-para-450x600.jpeg"
-                  alt=""
-                />
-                <a class="categories__link" href=""
-                  ><img
-                    class="categories__link-icon"
-                    src="./images/cherers_white.png"
-                    alt=""
-                  />
-                  <p class="categories__link-text">Encontros</p></a
-                >
-              </div>
-            </li>
-          </ul>
+                  <a class="categories__link" href=""
+                    ><img
+                      class="categories__link-icon"
+                      src="./images/cherers_white.png"
+                      alt=""
+                    />
+                    <p class="categories__link-text">Encontros</p></a
+                  >
+                </div>
+              </li>
+            </ul>
+          </div>
         </section>
       </main>
       <footer class="footer" id="footer">
@@ -350,24 +351,13 @@
             >
             <input
               class="form__input form__newCard-name"
-              name="cardName"
+              name="name"
               type="text"
               id="fragrance-name"
               required
               placeholder="Sauvage"
-              minlength="3"
-              maxlength="15"
-            />
-            <label class="form__label" for="brand-name">Nome da marca</label>
-            <input
-              class="form__input form__newCard-brand"
-              name="cardBrand"
-              type="text"
-              id="brand-name"
-              required
-              placeholder="Dior"
-              minlength="3"
-              maxlength="15"
+              minlength="2"
+              maxlength="30"
             />
             <button
               class="form__button form__newCard-button"

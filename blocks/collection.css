@@ -1,6 +1,16 @@
 .collection {
   background-color: #7f907c;
   border-radius: 30px;
+  display: none;
+}
+
+.collection__logged-in {
+  display: block;
+}
+
+.collection__container {
+  background-color: #7f907c;
+  border-radius: 30px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas:

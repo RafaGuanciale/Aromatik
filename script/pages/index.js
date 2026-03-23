@@ -4,11 +4,10 @@ import Popup from "../components/Popup.js";
 import Section from "../components/Section.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
-import HeaderUi from "../components/HeaderUi.js";
+import Ui from "../components/Ui.js";
 import {
   cardConfig,
   validatorConfig,
-  cardData,
   loginForm,
   profileEditForm,
   newCardForm,
@@ -19,12 +18,18 @@ import {
   categoriesCardsBtn,
   cardList,
   exitBtn,
-  defaultImageLink,
   profileNameInput,
   profileDescriptionInput,
+  createCardSubmitBtn,
+  loginPasswordInput,
+  loginUserInput,
+  initialCards,
 } from "../utils/consts.js";
+import api from "../components/Api.js";
+/// Login validation ///
 let isLoggedIn = false;
-
+let isApiAvailable = false;
+const loginVerification = localStorage.getItem("isLoggedIn");
 //// Validação de formulários ////
 const loginFormValidator = new FormValidator(validatorConfig, loginForm);
 const profileEditFormValidator = new FormValidator(
@@ -32,29 +37,46 @@ const profileEditFormValidator = new FormValidator(
   profileEditForm,
 );
 const newCardFormValidator = new FormValidator(validatorConfig, newCardForm);
-
-//// initial Cards ////
-const collectionCards = new Section(
-  {
-    data: cardData,
-    renderer: (item) => {
-      const card = new Card(item, cardConfig);
-      const cardElement = card.generateCard();
-      collectionCards.addItem(cardElement);
-    },
-  },
-  ".cards",
-);
-
 //// popups ////
 const loginPopup = new PopupWithForm(
   {
     handleFormSubmit: (data) => {
       const loginUser = data.loginUser;
       const loginPassword = data.loginPassword;
-      isLoggedIn = true;
-      loginPopup.close();
-      headerUi.loggedIn();
+      if (isApiAvailable) {
+        // Fluxo da API //
+        api
+          .getUserLogin(loginUser)
+          .then((res) => {
+            if (!res[0]) {
+              alert("Usuário não existe!");
+              loginUserInput.value = "";
+              loginPasswordInput.value = "";
+              return;
+            } else if (res[0].password !== loginPassword) {
+              alert("senha inválida!");
+              loginPasswordInput.value = "";
+              return;
+            } else {
+              loginSuccess();
+            }
+          })
+          .finally(() => {
+            loginFormValidator.resetValidation();
+          });
+      } else {
+        // Fluxo sem API //
+        fakeLogin(loginUser, loginPassword)
+          .then(() => {
+            loginSuccess();
+          })
+          .catch(() => {
+            alert("Erro no login");
+          })
+          .finally(() => {
+            loginFormValidator.resetValidation();
+          });
+      }
     },
   },
   "#login-popup",
@@ -74,34 +96,72 @@ const profileEditPopup = new PopupWithForm(
 const newCardPopup = new PopupWithForm(
   {
     handleFormSubmit: (data) => {
-      const name = data.cardName;
-      const brand = data.cardBrand;
-      const link = defaultImageLink;
-      const card = new Card({ name, brand, link }, cardConfig);
-      const cardElement = card.generateCard();
-      collectionCards.addItem(cardElement);
-      newCardPopup.close();
+      createCardSubmitBtn.textContent = "Adicionando...";
+      // Fluxo API
+      if (isApiAvailable) {
+        api
+          .searchPerfume(data.name)
+          .then((res) => {
+            const perfume = res[0];
+            if (!perfume) {
+              alert("Perfume não encontrado!");
+              newCardForm.reset();
+              return;
+            }
+            return api.addToCollection(perfume).then((collectionItem) => {
+              return { collectionItem, perfume };
+            });
+          })
+          .then((result) => {
+            if (!result) return;
+            const { collectionItem, perfume } = result;
+            const card = new Card(perfume, cardConfig, () => {
+              api.removeFromCollection(collectionItem.id).then(() => {
+                card.removeCard();
+              });
+            });
+            const cardElement = card.generateCard();
+            document.querySelector(".cards").prepend(cardElement);
+            newCardForm.reset();
+            newCardPopup.close();
+          })
+          .catch((error) => console.log(error))
+          .finally(() => {
+            createCardSubmitBtn.textContent = "Adicionar";
+          });
+      } else {
+        // Fluxo sem API ///
+        const fakeCardData = {
+          name: data.name,
+          brand: "Custom",
+          link: "./images/muhammad-sulyman-MDMrNFnyFQk-unsplash.jpg"
+        };
+        const card = new Card(fakeCardData, cardConfig, () => {
+          card.removeCard();
+        });
+        const cardElement = card.generateCard();
+        document.querySelector(".cards").prepend(cardElement);
+        newCardForm.reset();
+        newCardPopup.close();
+        createCardSubmitBtn.textContent = "Adicionar";
+      }
     },
   },
   "#newCard-popup",
 );
-
 const inspiredPopup = new Popup("#inspired-popup");
 const profilePopup = new Popup("#profile-popup");
 const cardPopup = new Popup("#card-popup");
 const categoriesPopup = new Popup("#categories-popup");
-
 //// Instancias ////
 const userInfo = new UserInfo({
   profileName: document.querySelector(".profile__name"),
   profileDescription: document.querySelector(".profile__description"),
 });
-
-const headerUi = new HeaderUi({
+const headerUi = new Ui({
   profileIcon: "#profile-icon",
   profileText: ".header__action-text",
 });
-
 //// Botóes de open Popup////
 headerProfileBtn.addEventListener("click", () => {
   if (isLoggedIn) {
@@ -122,7 +182,7 @@ newCardBtn.addEventListener("click", () => {
 });
 inspiredBtn.addEventListener("click", () => {
   inspiredPopup.open();
-})
+});
 cardList.addEventListener("click", (evt) => {
   const card = evt.target.closest(".card");
   if (!card) return;
@@ -134,18 +194,17 @@ exitBtn.addEventListener("click", () => {
     return;
   }
   isLoggedIn = false;
+  localStorage.setItem("isLoggedIn", "false");
   profilePopup.close();
   headerUi.loggedOut();
 });
 categoriesCardsBtn.addEventListener("click", () => {
   console.log("clicado");
   categoriesPopup.open();
-})
-
+});
 loginFormValidator.setEventListeners();
 profileEditFormValidator.setEventListeners();
 newCardFormValidator.setEventListeners();
-collectionCards.renderItems();
 loginPopup.setEventListeners();
 profileEditPopup.setEventListeners();
 newCardPopup.setEventListeners();
@@ -153,3 +212,87 @@ inspiredPopup.setEventListeners();
 profilePopup.setEventListeners();
 cardPopup.setEventListeners();
 categoriesPopup.setEventListeners();
+/// Renderização de cards da API collection ///
+function loadCardsFromApi() {
+  api
+    .getCollection()
+    .then((collection) => {
+      const requests = collection.map((item) =>
+        api.getPerfumeById(item.perfumeId).then((perfume) => {
+          return { collectionItem: item, perfume };
+        }),
+      );
+      return Promise.all(requests);
+    })
+    .then((results) => {
+      const collectionCards = new Section(
+        {
+          data: results,
+          renderer: (item) => {
+            const { collectionItem, perfume } = item;
+            const card = new Card(perfume, cardConfig, () => {
+              api.removeFromCollection(collectionItem.id).then(() => {
+                card.removeCard();
+              });
+            });
+            const cardElement = card.generateCard();
+            collectionCards.addItem(cardElement);
+          },
+        },
+        ".cards",
+      );
+      collectionCards.renderItems();
+    })
+    .catch((error) => console.log(error));
+}
+/// Renderização de cards iniciais ///
+const initialCardsSection = new Section(
+  {
+    data: initialCards,
+    renderer: (item) => {
+      const card = new Card(item, cardConfig, () => {
+        card.removeCard();
+      });
+      const cardElement = card.generateCard();
+      initialCardsSection.addItem(cardElement);
+    },
+  },
+  ".cards",
+);
+(function loginUiUpdate() {
+  if (loginVerification === "true") {
+    isLoggedIn = true;
+    headerUi.loggedIn();
+  } else {
+    isLoggedIn = false;
+  }
+})();
+/// fake Login && login sucess///
+function fakeLogin(username, password) {
+  return new Promise((resolve, reject) => {
+    if (username && password) {
+      resolve();
+    } else {
+      reject();
+    }
+  });
+}
+function loginSuccess() {
+  isLoggedIn = true;
+  localStorage.setItem("isLoggedIn", "true");
+  headerUi.loggedIn();
+  console.log("senha correta!");
+  loginPopup.close();
+}
+/// API check ///
+api.checkApi().then((res) => {
+  isApiAvailable = res;
+  console.log(`API online: ${isApiAvailable}`)
+  if (isApiAvailable) {
+    loadCardsFromApi();
+  } else {
+    initialCardsSection.renderItems();
+  }
+});
+
+// npx json-server db.json //
