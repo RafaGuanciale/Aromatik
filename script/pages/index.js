@@ -24,6 +24,10 @@ import {
   loginPasswordInput,
   loginUserInput,
   initialCards,
+  showPasswordBtn,
+  homeLoginBtn,
+  githubBtn,
+  linkedinBtn,
 } from "../utils/consts.js";
 import api from "../components/Api.js";
 /// Login validation ///
@@ -80,6 +84,9 @@ const loginPopup = new PopupWithForm(
     },
   },
   "#login-popup",
+  () => {
+    loginPasswordInput.type = "password";
+  },
 );
 const profileEditPopup = new PopupWithForm(
   {
@@ -134,7 +141,7 @@ const newCardPopup = new PopupWithForm(
         const fakeCardData = {
           name: data.name,
           brand: "Custom",
-          link: "./images/muhammad-sulyman-MDMrNFnyFQk-unsplash.jpg"
+          link: "./images/muhammad-sulyman-MDMrNFnyFQk-unsplash.jpg",
         };
         const card = new Card(fakeCardData, cardConfig, () => {
           card.removeCard();
@@ -202,6 +209,23 @@ categoriesCardsBtn.addEventListener("click", () => {
   console.log("clicado");
   categoriesPopup.open();
 });
+showPasswordBtn.addEventListener("click", () => {
+  if (loginPasswordInput.type === "password") {
+    loginPasswordInput.type = "text";
+  } else {
+    loginPasswordInput.type = "password";
+  }
+});
+githubBtn.addEventListener("click", () => {
+  window.open("https://github.com/RafaGuanciale", "_blank");
+});
+linkedinBtn.addEventListener("click", () => {
+  window.open("https://www.linkedin.com/in/rafaelguanciale", "_blank");
+});
+homeLoginBtn.addEventListener("click", () => {
+  loginPopup.open();
+  loginFormValidator.resetValidation();
+});
 loginFormValidator.setEventListeners();
 profileEditFormValidator.setEventListeners();
 newCardFormValidator.setEventListeners();
@@ -212,6 +236,16 @@ inspiredPopup.setEventListeners();
 profilePopup.setEventListeners();
 cardPopup.setEventListeners();
 categoriesPopup.setEventListeners();
+/// API check ///
+api.checkApi().then((res) => {
+  isApiAvailable = res;
+  console.log(`API online: ${isApiAvailable}`);
+  if (isApiAvailable) {
+    loadCardsFromApi();
+  } else {
+    initialCardsSection.renderItems();
+  }
+});
 /// Renderização de cards da API collection ///
 function loadCardsFromApi() {
   api
@@ -245,7 +279,7 @@ function loadCardsFromApi() {
     })
     .catch((error) => console.log(error));
 }
-/// Renderização de cards iniciais ///
+/// Renderização de cards locais ///
 const initialCardsSection = new Section(
   {
     data: initialCards,
@@ -282,17 +316,8 @@ function loginSuccess() {
   localStorage.setItem("isLoggedIn", "true");
   headerUi.loggedIn();
   console.log("senha correta!");
+
   loginPopup.close();
 }
-/// API check ///
-api.checkApi().then((res) => {
-  isApiAvailable = res;
-  console.log(`API online: ${isApiAvailable}`)
-  if (isApiAvailable) {
-    loadCardsFromApi();
-  } else {
-    initialCardsSection.renderItems();
-  }
-});
 
 // npx json-server db.json //

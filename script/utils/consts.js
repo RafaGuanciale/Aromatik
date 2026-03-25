@@ -19,6 +19,11 @@ export const exitBtn = profileModal.querySelector("#profile-edit-leave-btn");
 export const newCardBtn = document.querySelector("#new-card-btn");
 export const inspiredBtn = document.querySelector("#inspired-btn");
 export const categoriesCardsBtn = document.querySelector("#categories-cards");
+export const showPasswordBtn = document.querySelector(".login__password-toggle");
+export const homeLoginBtn = document.getElementById("home__loginBtn");
+export const githubBtn = document.getElementById("githubBtn");
+export const linkedinBtn = document.getElementById("linkedinBtn");
+
 ///// seletores /////
 export const profileName = profileModal.querySelector(".profile__name");
 export const profileDescription = profileModal.querySelector(
@@ -84,5 +89,23 @@ export const initialCards = [
     description:
       "Íris empoado e aveludado com lavanda, âmbar e cedro. Sofisticado e sensual, com presença elegante e envolvente para ocasiões especiais.",
     tags: ["Floral", "Amadeirado", "Inverno", "Noite"],
+  },
+  {
+    id: "1",
+    name: "Terre d'Hermès",
+    brand: "Hermes",
+    link: "https://leloynparfums.com.br/cdn/shop/files/70798_1.png?v=1769599428&width=1024",
+    description:
+      "Amadeirado seco e terroso, com sensação mineral e elegante. Presença madura, firme e discreta, mais racional do que expansiva.",
+    tags: ["Amadeirado", "Seco", "Mineral", "Dia"],
+  },
+  {
+    id: "4",
+    name: "Bleu de Chanel",
+    brand: "Chanel",
+    link: "https://www.chanel.com/puls-img/1750768790390-onepdpeditopushdm974x1298px052xjpg_2596x1948.jpg",
+    description:
+      "Cítrico, aromático e amadeirado com fundo de incenso. Um clássico moderno de elegância discreta, equilibrado e extremamente versátil.",
+    tags: ["Cítrico", "Amadeirado", "Clássico", "Versátil"],
   },
 ];

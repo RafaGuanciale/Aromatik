@@ -1,0 +1,123 @@
+.author{
+  background: #71816d;
+  padding: 100px 70px;
+  display: flex;
+}
+.author__logged-in{
+  display: none;
+}
+.author__container {
+  display: grid;
+  grid-template-columns: 1fr 1.8fr;
+  max-width: 1100px;
+  gap: 80px;
+  align-items: center;
+  margin: auto;
+}
+.author__picture{
+  display: grid;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 8px 20px rgba(0,0,0,0.3);
+  border-radius: 12px;
+  transition: 0.2s;
+}
+.author__picture:hover{
+  transform: scale(1.02);
+}
+.author__image {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  grid-area: 1/1;
+  border-radius: 12px;
+}
+.author__image-overlay{
+  grid-area: 1/1;
+  align-self: stretch;
+  background: linear-gradient(180deg, transparent 45%, rgba(42,58,38,0.92)100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+  z-index: 1;
+  border-radius: 12px;
+}
+.author__image-overlay-name{
+  font-size: 18px;
+  color: #f1e0c5;
+  font-style: italic;
+}
+.author__image-overlay-job{
+  font-size: 12px;
+  color: #f1e0c5;
+  letter-spacing: 1px;
+}
+.author__eyebrow{
+  background: rgba(241,224,197,0.4);
+  width: 28px;
+  height: 1px;
+  margin-bottom: 20px;
+}
+.author__eyebrow-label{
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: rgba(241,224,197,0.5);
+  margin-bottom: 14px;
+}
+.author__title{
+  font-size: 38px;
+  font-weight: 400;
+  color: #f1e0c5;
+  line-height: 1.3;
+}
+.author__subtitle{
+  font-size: 38px;
+  font-weight: 400;
+  color: rgba(241,224,197,0.75);
+  line-height: 1.3;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+.author__paragraph{
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.9;
+  color:rgba(241,224,197,0.65);
+  margin-bottom: 16px;
+}
+.author__buttons {
+  display: flex;
+  gap: 14px;
+}
+.author__cta-btn-brown {
+  border: none;
+  background: #342a21;
+  color: #f1e0c5;
+  padding: 14px 30px;
+  border-radius: 24px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.author__cta-btn-brown:hover {
+  background: #4a3828;
+}
+.author__cta-btn-transparent {
+  border: 1px solid rgba(241,224,197,0.35);;
+  background: transparent;
+  color: #f1e0c5;
+  padding: 14px 30px;
+  border-radius: 24px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.author__cta-btn-transparent:hover {
+  background: rgba(241, 224, 197, 0.08);
+}

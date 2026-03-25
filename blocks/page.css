@@ -4,11 +4,15 @@
 
 body {
   min-height: 100vh;
-  background-color: #c7c8b3;
+  background-color: #c9b79c;
   position: relative;
 }
 
-.body__no-scroll{
+html {
+  scroll-behavior: smooth;
+}
+
+.body__no-scroll {
   overflow: hidden;
 }
 
@@ -18,9 +22,4 @@ body {
   font-size: 16px;
   line-height: 20px;
   position: relative;
-}
-
-.content{
-  max-width: 1440px;
-  margin: auto;
 }

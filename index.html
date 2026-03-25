@@ -30,22 +30,19 @@
         <div class="header__container">
           <h2 class="header__title">Aromatik</h2>
 
-          <nav class="header__nav">
-            <ul class="header__list">
-              <li>
-                <a href="#home" class="header__list-button">Home</a>
-              </li>
-              <li>
-                <a href="#collection" class="header__list-button">Colletion</a>
-              </li>
-              <li>
-                <a href="#categories" class="header__list-button">Categories</a>
-              </li>
-              <li>
-                <a href="#footer" class="header__list-button">About Us</a>
-              </li>
-            </ul>
-          </nav>
+          <div class="header__nav-container">
+            <nav class="header__nav" id= "header__nav-landpage">
+              <a href="#home" class="header__list-button">Home</a>
+              <a href="#about-aromatik" class="header__list-button">Produto</a>
+              <a href="#author" class="header__list-button">Desenvolvedor</a>
+            </nav>
+             <nav class="header__nav header__nav-disabled" id="header__nav-loggedIn">
+              <a href="#home" class="header__list-button">Home</a>
+              <a href="#collection" class="header__list-button">Coleção</a>
+              <a href="#categories" class="header__list-button">Categorias</a>
+              <a href="#footer" class="header__list-button">Sobre</a>
+            </nav>
+          </div>
 
           <div class="header__actions">
             <button
@@ -55,27 +52,153 @@
               <img
                 id="profile-icon"
                 class="header__action-icon"
-                src="./images/circle-user_brown.png"
+                src="./images/circle-user-champagne.png"
                 alt="Profile"
               />
-              <span class="header__action-text">Login</span>
+              <span class="header__action-text">Entrar</span>
             </button>
           </div>
         </div>
       </header>
       <main class="content">
         <section class="home" id="home">
-          <img
-            src="images/campo_florido.jpg"
-            alt="Campo florido"
-            class="home__image"
-          />
-          <h1 class="home__title">Aromatik</h1>
-          <h2 class="home__subtitle">Sua assinatura olfativa</h2>
-          <h2 class="home__description">
-            Descubra fragrâncias escolhidas para você!
-          </h2>
-          <div class="home__geo"></div>
+          <div class="home__bg">
+            <div class="home__right-bg"></div>
+            <div class="home__left-bg"></div>
+            <svg
+              class="home__divider"
+              viewBox="0 0 70 100"
+              preserveAspectRatio="none"
+            >
+              <polygon points="0,0 70,0 0,100" />
+            </svg>
+          </div>
+          <div class="home__container">
+            <div class="home__left">
+              <div class="home__eyebrow"></div>
+              <p class="home__eyebrow-label">Sua assinatura olfativa</p>
+              <h1 class="home__title-brown">Sua coleção,</h1>
+              <h1 class="home__title-green">Sua identidade</h1>
+              <p class="home__subtitle">
+                Organize e descubra o perfil olfativo que define quem você é,
+                fragrância por fragrância.
+              </p>
+              <div class="home__left-buttons">
+                <button class="home__cta-btn-brown" id="home__loginBtn">ENTRAR</button>
+                <button class="home__cta-btn-transparent" id="home__exploreBtn">SAIBA MAIS</button>
+              </div>
+            </div>
+            <div class="home__right">
+              <div class="home__right-container">
+                <p class="home__eyebrow-label-right">AROMATIK</p>
+                <h1 class="home__quote">
+                  "Um perfume é a memória que você escolhe carregar."
+                </h1>
+                <div class="home__eyebrow-right"></div>
+                <p class="home__eyebrow-label-right">DESCUBRA SUA ASSINATURA</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="about" id="about-aromatik">
+          <div class="about__container">
+            <div class="about__eyebrow-main">
+              <p class="about__central-eyebrow">O PROJETO</p>
+              <h2 class="about__central-title">Conheça o Aromatik</h2>
+            </div>
+            <div class="about__content-grid">
+              <div class="about__collection-left">
+                <div class="about__eyebrow-collection"></div>
+                <p class="about__eyebrow-label">COLEÇÃO</p>
+                <h3 class="about__collection-title">Centralize seus</h3>
+                <h4 class="about__collection-subtitle">perfumes</h4>
+                <p class="about__collection-paragraph">
+                  Adicione qualquer perfume buscando pelo nome. Os dados vêm
+                  direto do catálogo com imagem, marca e descrição já
+                  preenchidos para você.
+                </p>
+                <ul class="about__collection-left-list">
+                  <li>Busca por nome no catálogo</li>
+                  <li>Dados preenchidos automaticamente</li>
+                  <li>Remova a qualquer momento</li>
+                </ul>
+              </div>
+              <div class="about__collection-right">
+                <img
+                  class="about__collection-mockup"
+                  src="./images/mockup-collection.JPG"
+                  alt=""
+                />
+              </div>
+
+              <div class="about__eyebrow-middle"></div>
+
+              <div class="about__analysis-left">
+                <img
+                  class="about__analysis-mockup"
+                  src="./images/mockup-analysis.JPG"
+                  alt="Mockup da Análise"
+                />
+              </div>
+              <div class="about__analysis-right">
+                <div class="about__eyebrow-collection"></div>
+                <p class="about__eyebrow-label">ANÁLISE OLFATIVA</p>
+                <h3 class="about__collection-title">Entenda sua</h3>
+                <h4 class="about__collection-subtitle">identidade olfativa</h4>
+                <p class="about__collection-paragraph">
+                  O Aromatik analisa as notas de cada perfume e gera um
+                  diagnóstico real sobre sua coleção, mostrando o perfil
+                  predominante e o que incluir para tornar sua coleção mais
+                  completa e equilibrada.
+                </p>
+                <ul class="about__collection-left-list">
+                  <li>Busca por nome no catálogo</li>
+                  <li>Dados preenchidos automaticamente</li>
+                  <li>Remova a qualquer momento</li>
+                </ul>
+              </div>
+            </div>
+            <button class="about__cta-btn-brown">Criar minha conta</button>
+          </div>
+        </section>
+        <section class="author" id="author">
+          <div class="author__container">
+            <div class="author__picture">
+              <img
+                src="./images/foto_aromatik_3x4.jpg"
+                alt="Foto do autor Rafael"
+                class="author__image"
+              />
+              <div class="author__image-overlay">
+                <p class="author__image-overlay-name">Rafael Guanciale Nacarato</p>
+                <p class="author__image-overlay-job">Web developer - Fullstack in training</p>
+              </div>
+            </div>
+            <div class="author__info">
+              <div class="author__eyebrow"></div>
+              <p class="author__eyebrow-label">
+                SOBRE O DESENVOLVEDOR & O PROJETO
+              </p>
+              <h3 class="author__title">Paixão por perfumaria,</h3>
+              <h4 class="author__subtitle">aprendizado em código</h4>
+              <p class="author__paragraph">
+                O Aromatik nasceu da união de duas paixões: o universo das
+                fragrâncias e o desenvolvimento web. É o meu laboratório de
+                aprendizado, onde cada funcionalidade reflete um novo conceito
+                aprendido.
+              </p>
+              <p class="author__paragraph">
+                HTML, CSS, JavaScript e arquitetura orientada a objetos
+                aplicados em um produto real, pensado para quem leva a
+                perfumaria a sério.
+              </p>
+              <div class="author__buttons">
+                <button class="author__cta-btn-brown" id="githubBtn">GITHUB</button>
+                <button class="author__cta-btn-transparent" id="linkedinBtn">LINKEDIN</button>
+              </div>
+            </div>
+          </div>
+
         </section>
         <section class="collection" id="collection">
           <div class="collection__containter">
@@ -204,43 +327,39 @@
               <h2>Aromatik</h2>
             </div>
             <div class="footer__column_copyright">
+              <p class="footer__texto">© 2025 Aromatik.</p>
               <p class="footer__texto">
-                © 2025 Aromatik. Inspirando momentos através de fragrâncias
-                únicas.
-              </p>
-              <p class="footer__texto">
-                Desenvolvido com dedicação por Rafael Guanciale.
+                Desenvolvido com dedicação por Rafael Guanciale Nacarato.
               </p>
             </div>
           </div>
           <div class="footer__column_content-social" id="footer-social">
-            <h3 class="footer__column-heading">Mídia Social</h3>
             <ul class="footer__list">
               <li>
-                <a class="footer__social-link" href="#">
+                <a class="footer__social-link" href="https://www.instagram.com/rafagn" target="_blank">
                   <img
                     class="footer__social-icon"
-                    src="./images/instagram_white.png"
+                    src="./images/instagram-circle-green.png"
                     alt="Logo Instagram"
                   />Instagram</a
                 >
               </li>
               <li>
-                <a class="footer__social-link" href="#">
+                <a class="footer__social-link" href="https://github.com/RafaGuanciale" target="_blank">
                   <img
                     class="footer__social-icon"
-                    src="./images/facebook _white.png"
+                    src="./images/github-green.png"
                     alt="Logo Facebook"
-                  />Facebook</a
+                  />GitHub</a
                 >
               </li>
               <li>
-                <a class="footer__social-link" href="#">
+                <a class="footer__social-link" href="https://www.linkedin.com/in/rafaelguanciale/" target="_blank">
                   <img
                     class="footer__social-icon"
-                    src="./images/Mail_logo_white.png"
+                    src="./images/linkedin-circle-green.png"
                     alt="Logo email"
-                  />Email</a
+                  />Linkedin</a
                 >
               </li>
             </ul>
