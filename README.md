@@ -1,31 +1,26 @@
-# Aromatik 1.8 — Front-end Web App
+# Aromatik 1.9 — Front-end Web App
 
 **visualizar projeto:** https://rafaguanciale.github.io/Aromatik/
 
 O Aromatik é um projeto pessoal desenvolvido em paralelo às sprints do curso de Web Development da TripleTen. Ele funciona como um laboratório contínuo de evolução, onde aplico de forma prática os conceitos aprendidos em HTML, CSS e JavaScript, sempre com foco em organização, clareza, escalabilidade e visão de produto.
 
-A partir da versão **1.8**, o projeto consolida a base como um **mini app front-end orientado a objetos**, com **classes reutilizáveis**, **index enxuto orquestrando** e **UI guiada por estado**.
-
-- Controle de estado
-- Interface reativa
-- Sistema de modais empilháveis
-- Validação dinâmica de formulários
-- Simulação de autenticação
+A partir da versão **1.9**, o projeto dá um salto significativo: deixa de ser apenas uma aplicação front-end estática e passa a se comunicar com uma **API local real**, com persistência de dados, autenticação conectada ao servidor e uma identidade visual completamente redesenhada.
 
 ## Objetivo do projeto
 
 O Aromatik **não é um catálogo de perfumes**.  
 A proposta é funcionar como uma ferramenta de leitura de coleção pessoal, ajudando o usuário a:
 
-- Visualizar a coleção de forma organizada
-- Entender padrões e “perfil predominante” da coleção
-- Contextualizar fragrâncias por uso/ocasião
-- Manter uma experiência de navegação com modais e fluxo de aplicação
+- Visualizar sua coleção de forma organizada
+- Entender o perfil predominante das fragrâncias
+- Descobrir se a coleção está balanceada e o que incluir para completá-la
+- Explorar fragrâncias por categoria e ocasião
+- Navegar por fluxos próximos de uma aplicação real, com autenticação e persistência
 
 ## Tecnologias Utilizadas
 
-- HTML5 
-- CSS3 
+- HTML5
+- CSS3
 - Metodologia BEM
 - Arquitetura modular de CSS (por blocos)
 - JavaScript (ES6+)
@@ -33,72 +28,118 @@ A proposta é funcionar como uma ferramenta de leitura de coleção pessoal, aju
 - POO com classes (ES Modules)
 - Validação de formulários (FormValidator)
 - Sistema de modais reutilizável (Popup / PopupWithForm)
-- Google Fonts
+- Google Fonts 
+- Node.js + npm
+- json-server (API REST local)
+- Fetch API + Promises
+- localStorage (persistência de sessão)
+
+## API local (json-server)
+
+A versão 1.9 introduz uma API REST local construída com **json-server**, hospedada em um repositório separado (`aromatik-api`). A API expõe três endpoints:
+
+- `/users` — dados de autenticação do usuário
+- `/perfumes` — catálogo de fragrâncias disponíveis
+- `/collection` — coleção pessoal do usuário (referências por `perfumeId`)
+
+Para rodar a API localmente:
+```bash
+cd aromatik-api
+npx json-server db.json
+```
 
 ## Principais funcionalidades e soluções técnicas
 
-1. **Sistema de modais reutilizável (POO)**
-- Classe `Popup` responsável por abrir/fechar, overlay e ESC
-- Controle de scroll do body ao abrir modal
-- Fechamento correto do **último modal aberto** ao pressionar ESC (comportamento em pilha)
+1. **Classe `Api` com métodos de comunicação**
+   - `checkApi()` — verifica se a API está online antes de qualquer requisição
+   - `getUserLogin(username)` — busca usuário por username para autenticação
+   - `getCollection()` — busca os itens da coleção do usuário
+   - `getPerfumeById(id)` — busca dados completos de um perfume pelo id
+   - `searchPerfume(name)` — busca perfume no catálogo por nome
+   - `addToCollection(data)` — adiciona perfume à coleção (POST com `perfumeId`)
+   - `removeFromCollection(id)` — remove item da coleção (DELETE)
 
-2. **Formulários com classe genérica (`PopupWithForm`)**
-- Captura de dados via `name=""` dos inputs 
-- Handlers no `index.js` ficam responsáveis apenas pela regra de negócio
-- Reset do form no `close()` (comportamento consistente)
+2. **Sistema de login conectado à API**
+   - Validação real de usuário e senha contra o servidor
+   - Três cenários tratados: usuário inexistente, senha inválida e login correto
+   - Persistência de sessão via `localStorage`
+   - Restauração automática do estado de login ao recarregar a página
 
-3. **Coleção (cards) com `Section` + `Card`**
-- Renderização inicial por `Section` a partir de `cardData`
-- `Card` gera o elemento via template e registra listeners internos
-- Remoção de card com confirmação e controle correto de propagação de evento
+3. **Fallback para GitHub Pages**
+   - `checkApi()` determina se a API está disponível
+   - Quando offline: login simulado + cards estáticos do array local
+   - Quando online: fluxo completo conectado à API
+   - Permite que visitantes do portfólio experimentem a aplicação sem rodar a API
 
-4. **Edição de perfil com `UserInfo`**
-- `getUserInfo()` para preencher o form com os dados atuais
-- `setUserInfo()` para atualizar UI com os valores enviados pelo popup
+4. **Coleção dinâmica via API**
+   - Carregamento inicial com `getCollection()` + `Promise.all()` para buscar perfumes em paralelo
+   - Adição de perfumes via busca no catálogo + `addToCollection()`
+   - Remoção com `removeFromCollection()` — DOM atualizado apenas após confirmação do servidor
 
-5. **UI reativa ao login (`HeaderUi`)**
-- Header muda ícone, classe e texto conforme estado (`loggedIn()` / `loggedOut()`)
-- Login e logout alteram o estado e chamam a atualização visual
+5. **UI dinâmica por estado de login**
+   - Classe `Ui` (evolução da `HeaderUi`) controla todas as sections
+   - Antes do login: sections de coleção e categorias ocultas
+   - Após login: home, sobre e autor ocultados — coleção e categorias reveladas
+   - Estado restaurado automaticamente via `localStorage`
 
-6. **Refactor de conteúdo “Inspired”**
-- Remoção da section fixa “Inspired”
-- Transformação em **modal** (abre a partir da área de categorias), melhorando o fluxo de navegação
+6. **Redesign visual completo**
+   - Nova identidade com Playfair Display + Montserrat
+   - Paleta refinada: Champagne, Reseda Green, Bistre, Khaki e Blush
+   - Hero com layout split e divisória diagonal em SVG
+   - Section "Sobre o Aromatik" com mockups reais do projeto
+   - Section "Sobre mim" com foto biografia e overlay com gradiente
+   - Divisores Khaki entre sections
+   - Elementos decorativos sutis (círculos concêntricos na section 2)
+   - Box-shadow e hover em mockups, foto e botões
+   - Cards de categoria com efeito de expansão e reveal no hover (CSS puro)
 
 ## Decisões arquiteturais
 
-- `index.js` como **orquestrador**: instâncias + listeners + bootstrap
+- `index.js` como **orquestrador**: instâncias, listeners, bootstrap e verificação de API
+- Separação clara entre **fluxo com API** e **fluxo sem API** em todos os handlers
 - Classes com responsabilidade única:
-- `Popup` (comportamento base de modal)
-- `PopupWithForm` (submit e coleta de inputs)
-- `Section` (render/gestão do container)
-- `Card` (template + listeners internos)
-- `UserInfo` (leitura/escrita de dados do perfil)
-- `HeaderUi` (estado visual do header)
+  - `Api` (comunicação com o servidor)
+  - `Popup` / `PopupWithForm` (modais)
+  - `Section` (renderização de listas)
+  - `Card` (template + listeners)
+  - `UserInfo` (leitura/escrita de perfil)
+  - `Ui` (estado visual global da aplicação)
 
 ## Aprendizados pessoais
 
-- Construção de classes “do zero” (estrutura, responsabilidade e API)
-- Redução de acoplamento: inputs por `name` e coleta pelo próprio form
-- Separação real entre **UI**, **estado** e **orquestração**
-- Evolução de “site com modais” para “aplicação com fluxo controlado”
+- Construção de uma API REST do zero com json-server
+- Modelagem de banco de dados com recursos relacionados (perfumes × collection)
+- Fetch API com encadeamento de Promises e `Promise.all()`
+- Persistência de estado com `localStorage`
+- Arquitetura de fallback para ambientes sem servidor
+- Design system completo: paleta, tipografia, espaçamentos e componentes
+- Separação real entre estado, UI e orquestração
 
-## Melhorias futuras (roadmap)
+## Melhorias futuras (roadmap v2.0)
 
-- Persistência de login e coleção (ex.: LocalStorage)
-- Modal de card dinâmico (abrir com dados do card clicado)
-- Ajustes finos de responsividade e microinterações (transições/feedback)
+- Reescrita completa em **React**
+- Componentização de cards, modais e formulários
+- Gerenciamento de estado com `useState` e `useEffect`
+- Integração com API externas (Claude / Fragella)
+- Sistema de avaliações e notas por perfume
+- Filtros e busca por categoria, ocasião e estação
+- Persistência completa com backend real
+- Perfil do usuário com estatísticas da coleção
 
 ## Screenshots
 
 Header
-![Header](./images/screenshots/Login.JPG)
-![Header](./images/screenshots/profile.modal.JPG)
+![New landpage](./images/screenshots/newLandpage.JPG)
+![New landpage](./images/screenshots/newProfile.JPG)
 
 Coleção
-![Coleção](./images/screenshots/collection.JPG)
+![Coleção](./images/screenshots/newCollection.JPG)
 
 Card Modal
-![Cards](./images/screenshots/card.modal.JPG)
+![Cards](./images/screenshots/newCardPopup.JPG)
 
 Categorias
-![Categorias](./images/screenshots/categories.jpg)
+![Categorias](./images/screenshots/newCategories.JPG)
+
+Identidade Olfativa
+![Categorias](./images/screenshots/newIdentity.JPG)
