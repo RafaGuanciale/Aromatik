@@ -3,6 +3,7 @@ export default class Ui {
     this._profileIcon = document.querySelector(profileIcon);
     this._profileText = document.querySelector(profileText);
     this._collectionSection = document.getElementById("collection");
+    this._identitySection = document.getElementById("identity");
     this._categoriesSection = document.getElementById("categories");
     this._homeSection = document.getElementById("home");
     this._aboutSection = document.getElementById("about-aromatik");
@@ -16,7 +17,8 @@ export default class Ui {
     this._profileText.textContent = "Entrar";
     /// Login sections ///
     this._collectionSection.classList.remove("collection__logged-in");
-    this._categoriesSection.classList.remove("collection__logged-in");
+    this._categoriesSection.classList.remove("categories__logged-in");
+    this._identitySection.classList.remove("identity__logged-in");
     ///landpage Sections ///
     this._homeSection.classList.remove("home__logged-in");
     this._aboutSection.classList.remove("about__logged-in");
@@ -31,7 +33,8 @@ export default class Ui {
     this._profileText.textContent = "Perfil";
     /// Login Sections ///
     this._collectionSection.classList.add("collection__logged-in");
-    this._categoriesSection.classList.add("collection__logged-in");
+    this._identitySection.classList.add("identity__logged-in");
+    this._categoriesSection.classList.add("categories__logged-in");
     /// Landpage sections ///
     this._homeSection.classList.add("home__logged-in");
     this._aboutSection.classList.add("about__logged-in");

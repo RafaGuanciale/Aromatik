@@ -1,0 +1,165 @@
+.identity {
+  background-color: #7f907c;
+  border-radius: 30px;
+  display: none;
+  margin: 20px;
+  padding: 70px 70px 80px;
+}
+.identity__logged-in{
+  display: block;
+}
+.identity__title {
+  text-align: center;
+  font-size: 44px;
+  line-height: 52px;
+  font-weight: 500;
+  margin: 0 0 24px;
+  color: #f1e0c5;
+}
+.identity__eyebrow-main {
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 4px;
+  color: rgba(241, 224, 197, 0.6);
+}
+.identity__container {
+  max-width: 1440px;
+  background: rgba(52, 42, 33, 0.4);
+  margin: 0 auto;
+  border: 1px solid rgba(241, 224, 197, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr 1px 1fr;
+  grid-template-areas: "profile divider1 balance divider2 diagnostic";
+}
+.identity__profile {
+  grid-area: profile;
+  padding: 36px 40px;
+  display: flex;
+  flex-direction: column;
+}
+.identity__eyebrow {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(241, 224, 197, 0.6);
+  margin-bottom: 14px;
+}
+.identity__divider-one {
+  background: rgba(241, 224, 197, 0.08);
+  align-self: stretch;
+  grid-area: divider1;
+}
+.identity__divider-two {
+  background: rgba(241, 224, 197, 0.08);
+  align-self: stretch;
+  grid-area: divider2;
+}
+.identity__profile-title {
+  font-size: 24px;
+  color: #f1e0c5;
+  line-height: 1.3;
+  font-weight: 500;
+  margin: 0 0 24px;
+  color: #f1e0c5;
+}
+.identity__profile-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.identity__profile-tag {
+  background: rgba(201, 183, 156, 0.12);
+  border: 1px solid rgba(201, 183, 156, 0.22);
+  color: #c9b79c;
+  font-size: 10px;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+.identity__balance {
+  grid-area: balance;
+  padding: 36px 40px;
+  display: flex;
+  flex-direction: column;
+}
+.identity__balance-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.identity__balance-title {
+  font-size: 24px;
+  color: #da667b;
+  line-height: 1.3;
+  font-weight: 500;
+  margin: 0 0 24px;
+}
+.identity__bar-text {
+  display: flex;
+  justify-content: space-between;
+}
+.identity__bar-title {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: rgba(241, 224, 197, 0.6);
+}
+.identity__bar_percent-label {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: rgba(241, 224, 197, 0.6);
+}
+.identity__bar-bars{
+  display: grid;
+}
+.identity__bar{
+  grid-area: 1/1;
+  width: 100%;
+  height: 5px;
+  border-radius: 3px;
+  background: rgba(241,224,197,0.1);
+}
+.identity__bar_denses-percent{
+  grid-area: 1/1;
+  z-index: 1;
+  width: 70%;
+  height: 5px;
+  border-radius: 3px;
+  background: #da667b;
+}
+.identity__bar_fresh-percent{
+  grid-area: 1/1;
+  z-index: 1;
+  width: 30%;
+  height: 5px;
+  border-radius: 3px;
+  background: #71816d;
+}
+.identity__diagnostic{
+  grid-area: diagnostic;
+  padding: 36px 40px;
+  display: flex;
+  flex-direction: column;
+}
+.identity__diagnostic-paragraph{
+  font-size: 13px;
+  color: rgba(241, 224, 197, 0.8);
+  line-height: 1.9;
+  margin-bottom: 20px;
+}
+.identity__diagnostic_sugestion-box{
+  background: rgba(218,102,123,0.1);
+  border: 1px solid rgba(218,102,123,0.22);
+  border-radius: 6px;
+  padding: 14px 18px;
+}
+.identity__diagnostic_sugestion-label{
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(241, 224, 197, 0.6);
+}
+.identity__diagnostic_sugestion-text{
+  font-size: 14px;
+  color: #f1e0c5;
+}

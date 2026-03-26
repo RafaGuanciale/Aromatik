@@ -18,7 +18,7 @@ export const settingsBtn = document.querySelector("#profile-edit-settings-btn");
 export const exitBtn = profileModal.querySelector("#profile-edit-leave-btn");
 export const newCardBtn = document.querySelector("#new-card-btn");
 export const inspiredBtn = document.querySelector("#inspired-btn");
-export const categoriesCardsBtn = document.querySelector("#categories-cards");
+export const categoriesCardsBtn = document.querySelector(".categories__card-overlay-button");
 export const showPasswordBtn = document.querySelector(".login__password-toggle");
 export const homeLoginBtn = document.getElementById("home__loginBtn");
 export const githubBtn = document.getElementById("githubBtn");
@@ -31,6 +31,7 @@ export const profileDescription = profileModal.querySelector(
 );
 export const cardList = document.querySelector(".cards");
 export const card = cardList.querySelector(".card");
+export const categoriesListBtn = document.querySelector(".categories__list");
 ////// Variáveis /////
 export const defaultImageLink =
   "images/muhammad-sulyman-MDMrNFnyFQk-unsplash.jpg";
@@ -108,4 +109,17 @@ export const initialCards = [
       "Cítrico, aromático e amadeirado com fundo de incenso. Um clássico moderno de elegância discreta, equilibrado e extremamente versátil.",
     tags: ["Cítrico", "Amadeirado", "Clássico", "Versátil"],
   },
+  {
+      id: "3",
+      name: "Bleu Noir",
+      brand: "Narciso Rodriguez",
+      link: "https://www.giraofertas.com.br/wp-content/uploads/2024/11/Narciso-Rodriguez-For-Him-Bleu-Noir-Parfum-Masculino-05.jpg",
+      description: "Almiscarado e amadeirado com especiarias frias. Vetiver e cardamomo criam uma presença intensa e sedutora, densa e misteriosa.",
+      tags: [
+        "Almiscarado",
+        "Amadeirado",
+        "Noite",
+        "Outono"
+      ]
+    },
 ];

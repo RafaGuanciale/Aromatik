@@ -3,6 +3,9 @@ section {
   margin-bottom: 5px;
 }
 
+.section__logged-in {
+  display: block;
+}
 .section__tittle {
   text-align: center;
   font-size: 44px;

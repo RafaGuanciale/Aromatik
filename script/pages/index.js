@@ -15,7 +15,7 @@ import {
   profileEditBtn,
   newCardBtn,
   inspiredBtn,
-  categoriesCardsBtn,
+  categoriesListBtn,
   cardList,
   exitBtn,
   profileNameInput,
@@ -99,6 +99,7 @@ const profileEditPopup = new PopupWithForm(
     },
   },
   "#profile-edit-popup",
+  () => {},
 );
 const newCardPopup = new PopupWithForm(
   {
@@ -155,6 +156,7 @@ const newCardPopup = new PopupWithForm(
     },
   },
   "#newCard-popup",
+  () => {},
 );
 const inspiredPopup = new Popup("#inspired-popup");
 const profilePopup = new Popup("#profile-popup");
@@ -205,9 +207,12 @@ exitBtn.addEventListener("click", () => {
   profilePopup.close();
   headerUi.loggedOut();
 });
-categoriesCardsBtn.addEventListener("click", () => {
-  console.log("clicado");
-  categoriesPopup.open();
+categoriesListBtn.addEventListener("click", (evt) => {
+  if(evt.target.classList.contains("categories__card-overlay-button")){
+    const btnId = evt.target.id;
+    console.log(btnId);
+    categoriesPopup.open();
+  }
 });
 showPasswordBtn.addEventListener("click", () => {
   if (loginPasswordInput.type === "password") {

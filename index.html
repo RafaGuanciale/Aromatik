@@ -31,14 +31,18 @@
           <h2 class="header__title">Aromatik</h2>
 
           <div class="header__nav-container">
-            <nav class="header__nav" id= "header__nav-landpage">
+            <nav class="header__nav" id="header__nav-landpage">
               <a href="#home" class="header__list-button">Home</a>
               <a href="#about-aromatik" class="header__list-button">Produto</a>
               <a href="#author" class="header__list-button">Desenvolvedor</a>
             </nav>
-             <nav class="header__nav header__nav-disabled" id="header__nav-loggedIn">
+            <nav
+              class="header__nav header__nav-disabled"
+              id="header__nav-loggedIn"
+            >
               <a href="#home" class="header__list-button">Home</a>
               <a href="#collection" class="header__list-button">Coleção</a>
+              <a href="#identity" class="header__list-button">Análise</a>
               <a href="#categories" class="header__list-button">Categorias</a>
               <a href="#footer" class="header__list-button">Sobre</a>
             </nav>
@@ -84,8 +88,12 @@
                 fragrância por fragrância.
               </p>
               <div class="home__left-buttons">
-                <button class="home__cta-btn-brown" id="home__loginBtn">ENTRAR</button>
-                <button class="home__cta-btn-transparent" id="home__exploreBtn">SAIBA MAIS</button>
+                <button class="home__cta-btn-brown" id="home__loginBtn">
+                  ENTRAR
+                </button>
+                <button class="home__cta-btn-transparent" id="home__exploreBtn">
+                  SAIBA MAIS
+                </button>
               </div>
             </div>
             <div class="home__right">
@@ -170,8 +178,12 @@
                 class="author__image"
               />
               <div class="author__image-overlay">
-                <p class="author__image-overlay-name">Rafael Guanciale Nacarato</p>
-                <p class="author__image-overlay-job">Web developer - Fullstack in training</p>
+                <p class="author__image-overlay-name">
+                  Rafael Guanciale Nacarato
+                </p>
+                <p class="author__image-overlay-job">
+                  Web developer - Fullstack in training
+                </p>
               </div>
             </div>
             <div class="author__info">
@@ -193,21 +205,21 @@
                 perfumaria a sério.
               </p>
               <div class="author__buttons">
-                <button class="author__cta-btn-brown" id="githubBtn">GITHUB</button>
-                <button class="author__cta-btn-transparent" id="linkedinBtn">LINKEDIN</button>
+                <button class="author__cta-btn-brown" id="githubBtn">
+                  GITHUB
+                </button>
+                <button class="author__cta-btn-transparent" id="linkedinBtn">
+                  LINKEDIN
+                </button>
               </div>
             </div>
           </div>
-
         </section>
         <section class="collection" id="collection">
           <div class="collection__containter">
-            <h2 class="section__tittle section__tittle_collection">
-              Minha Coleção
-            </h2>
-            <p class="section__subtittle section__subtittle_collection">
-              Sua coleção, sua identidade. Um retrato olfativo das fragrâncias
-              que definem seu gosto, sua presença e sua história.
+            <h2 class="section__tittle collection__title">Minha Coleção</h2>
+            <p class="section__subtittle collection__subtitle">
+              5 fragrâncias - Perfil amadeirado
             </p>
             <div class="collection__box">
               <ul class="cards">
@@ -228,16 +240,16 @@
               </ul>
             </div>
             <div class="collection__footer">
-              <div class="collection__action-btn">
+              <div class="collection__action-btns">
                 <button class="collection__add-btn" id="new-card-btn">
-                  Adicione à coleção
+                  + Adicionar à coleção
                 </button>
                 <button class="collection__inspired-btn" id="inspired-btn">
-                  Contratipo sugerido
+                  Contratipos sugeridos
                 </button>
               </div>
 
-              <div class="collection__summary">
+              <!-- <div class="collection__summary">
                 <h2 class="section__tittle collection__summary-title">
                   Identidade olfativa
                 </h2>
@@ -249,74 +261,178 @@
                   Coleção desbalanceada, com excesso de fragrâncias densas e
                   pouca variação de frescor
                 </p>
+              </div> -->
+            </div>
+          </div>
+        </section>
+        <section class="identity" id="identity">
+          <div class="identity__containter">
+            <p class="identity__eyebrow-main">Análise da coleção</p>
+            <h2 class="identity__title">Identidade Olfativa</h2>
+            <div class="identity__container">
+              <div class="identity__profile">
+                <p class="identity__eyebrow">perfil predominante</p>
+                <h3 class="identity__profile-title">Amadeirado aromático</h3>
+                <div class="identity__profile-tags">
+                  <div class="identity__profile-tag">Amadeirado</div>
+                  <div class="identity__profile-tag">Aquático</div>
+                  <div class="identity__profile-tag">Almiscarado</div>
+                </div>
+              </div>
+              <div class="identity__divider-one"></div>
+              <div class="identity__balance">
+                <p class="identity__eyebrow">equilíbrio</p>
+                <h3 class="identity__balance-title">Desbalanceada</h3>
+                <div class="identity__balance-bars">
+                  <div class="identity__bar-denses">
+                    <div class="identity__bar-text">
+                      <p class="identity__bar-title">Amadeirado</p>
+                      <p class="identity__bar_percent-label">70%</p>
+                    </div>
+                    <div class="identity__bar-bars">
+                      <div class="identity__bar"></div>
+                      <div class="identity__bar_denses-percent"></div>
+                    </div>
+                  </div>
+                  <div class="identity__bar-fresh">
+                    <div class="identity__bar-text">
+                      <p class="identity__bar-title">Frescas</p>
+                      <p class="identity__bar_percent-label">30%</p>
+                    </div>
+                    <div class="identity__bar-bars">
+                      <div class="identity__bar"></div>
+                      <div class="identity__bar_fresh-percent"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="identity__divider-two"></div>
+              <div class="identity__diagnostic">
+                <p class="identity__eyebrow">diagnóstico</p>
+                <p class="identity__diagnostic-paragraph">
+                  Excesso de fragrâncias densas e pouca variação de frescor.
+                  Recomenda-se incluir notas aquáticas ou cítricas para
+                  equilibrar.
+                </p>
+                <div class="identity__diagnostic_sugestion-box">
+                  <p class="identity__diagnostic_sugestion-label">sugestão</p>
+                  <p class="identity__diagnostic_sugestion-text">
+                    Adicionar um perfume aquático ou cítrico
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </section>
         <section class="categories" id="categories">
           <div class="categories__container">
-            <h2 class="section__tittle section__tittle_categories">
-              Categorias & Ocasiões
-            </h2>
-            <p class="section__subtittle section__subtittle_categories">
-              Descubra fragrâncias ideais para cada momento do seu dia e deixe o
-              perfume traduzir quem você é em cada ocasião.
-            </p>
-            <ul class="categories__list">
-              <li class="categories__cards" id="categories-cards">
-                <div class="categories__content">
-                  <img
-                    class="categories__images"
-                    src="./images/work-redimensionado-para-450x600.jpeg"
-                    alt=""
-                  />
-                  <div>
-                    <a class="categories__link" href=""
-                      ><img
-                        class="categories__link-icon"
-                        src="./images/briefcase_white.png"
-                        alt=""
-                      />
-                      <p class="categories__link-text">Trabalho</p></a
-                    >
+            <div class="categories__header">
+              <p class="categories__eyebrow">EXPLORE POR MOMENTO</p>
+              <h2 class="section__tittle categories__title">
+                Categorias & Ocasiões
+              </h2>
+              <p class="section__subtittle categories__subtitle">
+                Descubra fragrâncias ideais para cada momento do seu dia e deixe
+                o perfume traduzir quem você é.
+              </p>
+            </div>
+            <div class="categories__content">
+              <ul class="categories__list">
+                <li>
+                  <div class="categories__card">
+                    <img
+                      class="categories__card-image"
+                      src="./images/work-redimensionado-para-450x600.jpeg"
+                      alt=""
+                    />
+                    <div class="categories__card-overlay-job">
+                      <div class="categories__overlay-main">
+                        <p class="categories__card-overlay-eyebrow">
+                          Discreto - Profissional
+                        </p>
+                        <p class="categories__card-overlay-title">Trabalho</p>
+                      </div>
+
+                      <div class="categories__overlay-extra">
+                        <p class="categories__card-overlay-description">
+                          Fragrâncias discretas e elegantes para o ambiente
+                          corporativo.
+                        </p>
+
+                        <button
+                          class="categories__card-overlay-button"
+                          id="categories__work-btn"
+                        >
+                          Ver fragrâncias
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </li>
-              <li class="categories__cards" id="categories-cards">
-                <div class="categories__content">
-                  <img
-                    class="categories__images"
-                    src="./images/gym-redimensionado-para-450x600.jpeg"
-                    alt=""
-                  />
-                  <a class="categories__link" href=""
-                    ><img
-                      class="categories__link-icon"
-                      src="./images/gym_icon_white.png"
+                </li>
+                <li>
+                  <div class="categories__card">
+                    <img
+                      class="categories__card-image"
+                      src="./images/gym-redimensionado-para-450x600.jpeg"
                       alt=""
                     />
-                    <p class="categories__link-text">Academia</p></a
-                  >
-                </div>
-              </li>
-              <li class="categories__cards" id="categories-cards">
-                <div class="categories__content">
-                  <img
-                    class="categories__images"
-                    src="./images/date-redimensionado-para-450x600.jpeg"
-                    alt=""
-                  />
-                  <a class="categories__link" href=""
-                    ><img
-                      class="categories__link-icon"
-                      src="./images/cherers_white.png"
+                    <div class="categories__card-overlay-gym">
+                      <div class="categories__overlay-main">
+                        <p class="categories__card-overlay-eyebrow">
+                          fresco - energético
+                        </p>
+                        <p class="categories__card-overlay-title">Academia</p>
+                      </div>
+
+                      <div class="categories__overlay-extra">
+                        <p class="categories__card-overlay-description">
+                          Fragrâncias leves e revigorantes para acompanhar seu
+                          treino sem pesar.
+                        </p>
+
+                        <button
+                          class="categories__card-overlay-button"
+                          id="categories__gym-btn"
+                        >
+                          Ver fragrâncias
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="categories__card">
+                    <img
+                      class="categories__card-image"
+                      src="./images/date-redimensionado-para-450x600.jpeg"
                       alt=""
                     />
-                    <p class="categories__link-text">Encontros</p></a
-                  >
-                </div>
-              </li>
-            </ul>
+                    <div class="categories__card-overlay-date">
+                      <div class="categories__overlay-main">
+                        <p class="categories__card-overlay-eyebrow">
+                          sedutor - marcante
+                        </p>
+                        <p class="categories__card-overlay-title">Encontros</p>
+                      </div>
+
+                      <div class="categories__overlay-extra">
+                        <p class="categories__card-overlay-description">
+                          Fragrâncias sedutoras e marcantes para momentos
+                          especiais e inesquecíveis.
+                        </p>
+
+                        <button
+                          class="categories__card-overlay-button"
+                          id="categories__date-btn"
+                        >
+                          Ver fragrâncias
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
         </section>
       </main>
@@ -336,7 +452,11 @@
           <div class="footer__column_content-social" id="footer-social">
             <ul class="footer__list">
               <li>
-                <a class="footer__social-link" href="https://www.instagram.com/rafagn" target="_blank">
+                <a
+                  class="footer__social-link"
+                  href="https://www.instagram.com/rafagn"
+                  target="_blank"
+                >
                   <img
                     class="footer__social-icon"
                     src="./images/instagram-circle-green.png"
@@ -345,7 +465,11 @@
                 >
               </li>
               <li>
-                <a class="footer__social-link" href="https://github.com/RafaGuanciale" target="_blank">
+                <a
+                  class="footer__social-link"
+                  href="https://github.com/RafaGuanciale"
+                  target="_blank"
+                >
                   <img
                     class="footer__social-icon"
                     src="./images/github-green.png"
@@ -354,7 +478,11 @@
                 >
               </li>
               <li>
-                <a class="footer__social-link" href="https://www.linkedin.com/in/rafaelguanciale/" target="_blank">
+                <a
+                  class="footer__social-link"
+                  href="https://www.linkedin.com/in/rafaelguanciale/"
+                  target="_blank"
+                >
                   <img
                     class="footer__social-icon"
                     src="./images/linkedin-circle-green.png"
