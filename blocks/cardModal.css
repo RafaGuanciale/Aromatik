@@ -1,10 +1,10 @@
 .card__modal {
-  width: 600px;
-  height: 1000px;
+  width: 26vw;
+  height: 95vh;
   background-color: #fff;
   border-radius: 30px;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
-  align-content: start;
+  /* align-content: start; */
   position: relative;
   display: flex;
   flex-direction: column;
@@ -20,93 +20,91 @@
 }
 
 .cardModal__name {
-  font-size: 30px;
-  margin-top: 15px;
-  font-weight: bold;
+  font-weight: 400;
+  font-size: 28px;
+  margin-top: 6px;
+  font-style: italic;
+  color: #342A21;
+  text-align: center;
+   font-family: 'Playfair Display', serif;
 }
 .cardModal__brand {
-  font-size: 22px;
-  margin-top: 10px;
-  font-weight: 400;
+  font-family: 'Montserrat', serif;
+  font-size: 12px;
+  margin-top: 5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #71816d;
+}
+
+.cardModal__divisor{
+  background: rgba(201,183,156,0.35);
+  width: calc(100% - 48px);
+  height: 0.6px;
+  margin: 8px 0;
 }
 
 .cardModal__description {
-  font-size: 18px;
-  margin: 15px 0;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #342A21;
+  padding: 0 18px;
+  font-family: 'Montserrat', serif;
 }
 
 .cardModal__image {
-  width: 620px;
+  width: 100%;
+  height: 50%;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
   object-fit: cover;
 }
 
 .cardModal__labels {
-  padding: 0;
+  padding: 0 18px;
   list-style-type: none;
-  display: grid;
-  grid-template-areas:
-    ". profile-1 profile-2 ."
-    ". season day .";
-  grid-template-columns: repeat(4, 125px);
-  grid-template-rows: auto auto;
+  display: flex;
+  flex-wrap: wrap;
   gap: 5px;
-  margin-bottom: 20px;
+  margin: 12px 0;
 }
 
-.cardModal__profile-main {
-  grid-area: profile-1;
-  background-color: rgba(199, 200, 179, 0.9);
-  padding: 5px;
-  border-radius: 15px;
-  font-size: 14px;
-  font-weight: 400;
+.cardModal__label {
+  background-color: rgba(201, 183, 156, 0.12);
+  padding: 3px 8px;
+  border: 0.5px solid rgba(201,183,156,0.25);
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #342A21;
+  letter-spacing: 1px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  text-align: center;
-}
-
-.cardModal__profile-secondary {
-  grid-area: profile-2;
-   background-color: rgba(199, 200, 179, 0.9);
-  padding: 5px;
-  border-radius: 15px;
-  font-size: 14px;
-  font-weight: 400;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  text-align: center;
-}
-
-.cardModal__profile-season {
-  grid-area: season;
-   background-color: rgba(199, 200, 179, 0.9);
-  padding: 5px;
-  border-radius: 15px;
-  font-size: 14px;
-  font-weight: 400;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  text-align: center;
-}
-
-.cardModal__profile-day {
-  grid-area: day;
-   background-color: rgba(199, 200, 179, 0.9);
-  padding: 5px;
-  border-radius: 15px;
-  font-size: 14px;
-  font-weight: 400;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  text-align: center;
+  font-family: 'Montserrat', serif;
 }
 
 .cardModal__role {
   display: flex;
   flex-direction: column;
+  background: rgba(241,224,197,0.22);
+  border: 0.5px solid rgba(201,183,156,0.25);
+  border-radius: 8px;
+  padding: 14px 16px;
 }
 
 .cardModal__role-title {
-  font-size: 24px;
+  font-size: 9px;
   line-height: 100%;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  color: #71816d;
+  font-family: 'Montserrat';
+}
+
+.cardModal__role-text {
+  font-family: 'Montserrat';
+  font-size: 13px;
+  font-weight: 300;
+
 }

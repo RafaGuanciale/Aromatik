@@ -32,6 +32,10 @@ export const profileDescription = profileModal.querySelector(
 export const cardList = document.querySelector(".cards");
 export const card = cardList.querySelector(".card");
 export const categoriesListBtn = document.querySelector(".categories__list");
+export const perfumeNameSelector = document.querySelector(".cardModal__name");
+export const perfumeBrandSelector = document.querySelector(".cardModal__brand");
+export const perfumeImageSelector = document.querySelector(".cardModal__image");
+export const perfumeDescriptionSelector = document.querySelector(".cardModal__description");
 ////// Variáveis /////
 export const defaultImageLink =
   "images/muhammad-sulyman-MDMrNFnyFQk-unsplash.jpg";

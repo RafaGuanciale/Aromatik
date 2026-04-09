@@ -19,6 +19,10 @@ export default class Card {
     this._element.querySelector(".card__brand").textContent = this._cardData.brand;
     this._element.querySelector(".card__image").src = this._cardData.link;
     this._element.querySelector(".card__image").alt = this._cardData.name;
+    this._element.dataset.name = this._cardData.name;
+    this._element.dataset.brand = this._cardData.brand;
+    this._element.dataset.link = this._cardData.link;
+    this._element.dataset.description = this._cardData.description;
     this._setEventListeners();
     return this._element;
   }

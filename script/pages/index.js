@@ -3,6 +3,7 @@ import FormValidator from "../components/FormValidator.js";
 import Popup from "../components/Popup.js";
 import Section from "../components/Section.js";
 import PopupWithForm from "../components/PopupWithForm.js";
+import PopupCard from "../components/PopupCard.js";
 import UserInfo from "../components/UserInfo.js";
 import Ui from "../components/Ui.js";
 import {
@@ -28,6 +29,10 @@ import {
   homeLoginBtn,
   githubBtn,
   linkedinBtn,
+  perfumeNameSelector,
+  perfumeBrandSelector,
+  perfumeDescriptionSelector,
+  perfumeImageSelector,
 } from "../utils/consts.js";
 import api from "../components/Api.js";
 /// Login validation ///
@@ -160,7 +165,15 @@ const newCardPopup = new PopupWithForm(
 );
 const inspiredPopup = new Popup("#inspired-popup");
 const profilePopup = new Popup("#profile-popup");
-const cardPopup = new Popup("#card-popup");
+const cardPopup = new PopupCard(
+  {
+    perfumeNameSelector,
+    perfumeBrandSelector,
+    perfumeImageSelector,
+    perfumeDescriptionSelector,
+  },
+  "#card-popup",
+);
 const categoriesPopup = new Popup("#categories-popup");
 //// Instancias ////
 const userInfo = new UserInfo({
@@ -195,6 +208,8 @@ inspiredBtn.addEventListener("click", () => {
 cardList.addEventListener("click", (evt) => {
   const card = evt.target.closest(".card");
   if (!card) return;
+  cardPopup.cardDataSet(card.dataset);
+  cardPopup.setPerfumePopupInfo();
   cardPopup.open();
 });
 exitBtn.addEventListener("click", () => {
@@ -208,9 +223,8 @@ exitBtn.addEventListener("click", () => {
   headerUi.loggedOut();
 });
 categoriesListBtn.addEventListener("click", (evt) => {
-  if(evt.target.classList.contains("categories__card-overlay-button")){
+  if (evt.target.classList.contains("categories__card-overlay-button")) {
     const btnId = evt.target.id;
-    console.log(btnId);
     categoriesPopup.open();
   }
 });
