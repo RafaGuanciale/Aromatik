@@ -313,7 +313,7 @@ const initialCardsSection = new Section(
   {
     data: initialCards,
     renderer: (item) => {
-      const card = new Card(item, cardConfig, () => {
+      const card = new Card(item.role, item, cardConfig, () => {
         card.removeCard();
       });
       const cardElement = card.generateCard();
