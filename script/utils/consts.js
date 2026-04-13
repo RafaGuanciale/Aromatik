@@ -36,6 +36,11 @@ export const perfumeNameSelector = document.querySelector(".cardModal__name");
 export const perfumeBrandSelector = document.querySelector(".cardModal__brand");
 export const perfumeImageSelector = document.querySelector(".cardModal__image");
 export const perfumeDescriptionSelector = document.querySelector(".cardModal__description");
+export const perfumeFamilySelector = document.querySelector(".cardModal__family");
+export const perfumeOccasionSelector = document.querySelector(".cardModal__occasion");
+export const perfumeClimateSelector = document.querySelector(".cardModal__climate");
+export const perfumeIntensitySelector = document.querySelector(".cardModal__intensity");
+export const perfumeRoleSelector = document.querySelector(".cardModal__role-text");
 ////// Variáveis /////
 export const defaultImageLink =
   "images/muhammad-sulyman-MDMrNFnyFQk-unsplash.jpg";

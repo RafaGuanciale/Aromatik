@@ -33,6 +33,11 @@ import {
   perfumeBrandSelector,
   perfumeDescriptionSelector,
   perfumeImageSelector,
+  perfumeFamilySelector,
+  perfumeOccasionSelector,
+  perfumeClimateSelector,
+  perfumeIntensitySelector,
+  perfumeRoleSelector,
 } from "../utils/consts.js";
 import api from "../components/Api.js";
 /// Login validation ///
@@ -122,13 +127,13 @@ const newCardPopup = new PopupWithForm(
               return;
             }
             return api.addToCollection(perfume).then((collectionItem) => {
-              return { collectionItem, perfume };
+              return {collectionRole: collectionItem.role, collectionItem, perfume };
             });
           })
           .then((result) => {
             if (!result) return;
-            const { collectionItem, perfume } = result;
-            const card = new Card(perfume, cardConfig, () => {
+            const {collectionRole, collectionItem, perfume } = result;
+            const card = new Card(collectionRole, perfume, cardConfig, () => {
               api.removeFromCollection(collectionItem.id).then(() => {
                 card.removeCard();
               });
@@ -171,6 +176,11 @@ const cardPopup = new PopupCard(
     perfumeBrandSelector,
     perfumeImageSelector,
     perfumeDescriptionSelector,
+    perfumeFamilySelector,
+    perfumeOccasionSelector,
+    perfumeClimateSelector,
+    perfumeIntensitySelector,
+    perfumeRoleSelector,
   },
   "#card-popup",
 );
@@ -272,7 +282,7 @@ function loadCardsFromApi() {
     .then((collection) => {
       const requests = collection.map((item) =>
         api.getPerfumeById(item.perfumeId).then((perfume) => {
-          return { collectionItem: item, perfume };
+          return { collectionRole: item.role, collectionItem: item, perfume };
         }),
       );
       return Promise.all(requests);
@@ -282,8 +292,8 @@ function loadCardsFromApi() {
         {
           data: results,
           renderer: (item) => {
-            const { collectionItem, perfume } = item;
-            const card = new Card(perfume, cardConfig, () => {
+            const { collectionRole, collectionItem, perfume } = item;
+            const card = new Card(collectionRole, perfume, cardConfig, () => {
               api.removeFromCollection(collectionItem.id).then(() => {
                 card.removeCard();
               });

@@ -20,6 +20,7 @@ class Api {
       },
       body: JSON.stringify({
         perfumeId: data.id,
+        role: "Papel na coleção ainda não definido. Em breve a inteligência do Aromatik vai analisar sua coleção e revelar o papel deste perfume.",
       }),
     })
       .then((response) => this._handleResponse(response))
