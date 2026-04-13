@@ -1,0 +1,9 @@
+.complement {
+  background-color: #7f907c;
+  border-radius: 30px;
+  display: none;
+  margin: 20px;
+}
+.complement__logged-in{
+  display: block;
+}

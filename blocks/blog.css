@@ -1,0 +1,9 @@
+.blog {
+  background-color: #7f907c;
+  border-radius: 30px;
+  display: none;
+  margin: 20px;
+}
+.blog__logged-in{
+  display: block;
+}
