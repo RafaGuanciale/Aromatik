@@ -364,8 +364,8 @@ categories.forEach((cat) => {
     );
     container.classList.toggle("complement__category-active");
     arrowBtn.src = isHidden
-      ? "../images/icons/arrow-down.png"
-      : "../images/icons/arrow-up.png";
+      ? "./images/icons/arrow-down.png"
+      : "./images/icons/arrow-up.png";
 
   });
 });
