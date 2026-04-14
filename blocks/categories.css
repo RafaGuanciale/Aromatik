@@ -10,8 +10,7 @@
 .categories__container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  max-width: 1000px;
+  max-width: 1370px;
   margin: 0 auto;
 }
 .categories__header {
@@ -19,36 +18,37 @@
   flex-direction: column;
 }
 .categories__eyebrow {
-  text-align: center;
+  text-align: left;
   font-size: 14px;
   letter-spacing: 4px;
   color: rgba(241, 224, 197, 0.6);
 }
 .categories__title {
-  text-align: center;
+  font-family: "Playfair Display";
+  text-align: left;
   font-size: 44px;
-  line-height: 52px;
-  font-weight: 500;
-  margin: 0 0 24px;
+  font-weight: 400;
+  margin-bottom: 14px;
   color: #f1e0c5;
 }
 .categories__subtitle {
-  text-align: center;
+  text-align: left;
   font-size: 16px;
   line-height: 1.8;
   font-weight: 400;
   max-width: 500px;
   color: rgba(241, 224, 197, 0.6);
-  margin: 0 auto 52px;
+  margin: 0 0 52px;
 }
 .categories__list {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
-  row-gap: 30px;
+  gap: 30px;
   padding: 0;
-  margin: 0 auto;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
 }
 .categories__card {
   display: grid;
@@ -70,7 +70,7 @@
   transition: transform 0.5s ease;
 }
 .categories__card:hover .categories__card-image {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 .categories__card-overlay-job {
   grid-area: 1/1;

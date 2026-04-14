@@ -27,6 +27,9 @@ export const showPasswordBtn = document.querySelector(
 export const homeLoginBtn = document.getElementById("home__loginBtn");
 export const githubBtn = document.getElementById("githubBtn");
 export const linkedinBtn = document.getElementById("linkedinBtn");
+export const categories = document.querySelectorAll(
+  ".complement__olfactory_categories",
+);
 
 ///// seletores /////
 export const profileName = profileModal.querySelector(".profile__name");
@@ -108,7 +111,7 @@ export const initialCards = [
     occasion: "Casual",
     climate: "Calor",
     intensity: "Leve",
-    role: "Papel na coleção ainda não definido. Em breve a inteligência do Aromatik vai analisar sua coleção e revelar o papel deste perfume."
+    role: "Papel na coleção ainda não definido. Em breve a inteligência do Aromatik vai analisar sua coleção e revelar o papel deste perfume.",
   },
   {
     id: "10",
@@ -121,7 +124,7 @@ export const initialCards = [
     occasion: "Evento",
     climate: "Frio",
     intensity: "Intenso",
-    role: "Papel na coleção ainda não definido. Em breve a inteligência do Aromatik vai analisar sua coleção e revelar o papel deste perfume."
+    role: "Papel na coleção ainda não definido. Em breve a inteligência do Aromatik vai analisar sua coleção e revelar o papel deste perfume.",
   },
   {
     id: "1",
@@ -134,7 +137,7 @@ export const initialCards = [
     occasion: "Dia",
     climate: "Ameno",
     intensity: "Moderado",
-    role: "A assinatura diurna da coleção. Representa você no dia a dia com maturidade e elegância discreta. Presente e firme sem precisar gritar para ser notado por quem importa."
+    role: "A assinatura diurna da coleção. Representa você no dia a dia com maturidade e elegância discreta. Presente e firme sem precisar gritar para ser notado por quem importa.",
   },
   {
     id: "4",
@@ -147,7 +150,7 @@ export const initialCards = [
     occasion: "Versátil",
     climate: "Ameno",
     intensity: "Moderado",
-    role: "O coringa absoluto da coleção. Versátil, equilibrado e refinado, funciona do trabalho ao jantar sem errar nenhuma vez. Confiável e elegante em qualquer situação."
+    role: "O coringa absoluto da coleção. Versátil, equilibrado e refinado, funciona do trabalho ao jantar sem errar nenhuma vez. Confiável e elegante em qualquer situação.",
   },
   {
     id: "3",
@@ -160,6 +163,6 @@ export const initialCards = [
     occasion: "Noite",
     climate: "Frio",
     intensity: "Intenso",
-    role: "Reservado para noites elegantes e ocasiões que exigem presença real. Sofisticado, misterioso e denso, é o perfume certo quando o momento pede impacto e memória."
+    role: "Reservado para noites elegantes e ocasiões que exigem presença real. Sofisticado, misterioso e denso, é o perfume certo quando o momento pede impacto e memória.",
   },
 ];

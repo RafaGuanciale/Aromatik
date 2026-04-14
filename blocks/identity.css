@@ -5,24 +5,29 @@
   margin: 20px;
   padding: 70px 70px 80px;
 }
+.identity__container{
+  max-width: 1440px;
+  margin: 0 auto;
+}
 .identity__logged-in{
   display: block;
 }
 .identity__title {
-  text-align: center;
+  font-family: "Playfair Display";
+  text-align: left;
   font-size: 44px;
   line-height: 52px;
   font-weight: 500;
-  margin: 0 0 24px;
+  margin: 0 0 52px;
   color: #f1e0c5;
 }
 .identity__eyebrow-main {
-  text-align: center;
+  text-align: left;
   font-size: 14px;
   letter-spacing: 4px;
   color: rgba(241, 224, 197, 0.6);
 }
-.identity__container {
+.identity__content {
   max-width: 1440px;
   background: rgba(52, 42, 33, 0.4);
   margin: 0 auto;

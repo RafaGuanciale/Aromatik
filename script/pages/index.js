@@ -38,6 +38,7 @@ import {
   perfumeClimateSelector,
   perfumeIntensitySelector,
   perfumeRoleSelector,
+  categories,
 } from "../utils/consts.js";
 import api from "../components/Api.js";
 /// Login validation ///
@@ -127,12 +128,16 @@ const newCardPopup = new PopupWithForm(
               return;
             }
             return api.addToCollection(perfume).then((collectionItem) => {
-              return {collectionRole: collectionItem.role, collectionItem, perfume };
+              return {
+                collectionRole: collectionItem.role,
+                collectionItem,
+                perfume,
+              };
             });
           })
           .then((result) => {
             if (!result) return;
-            const {collectionRole, collectionItem, perfume } = result;
+            const { collectionRole, collectionItem, perfume } = result;
             const card = new Card(collectionRole, perfume, cardConfig, () => {
               api.removeFromCollection(collectionItem.id).then(() => {
                 card.removeCard();
@@ -168,7 +173,6 @@ const newCardPopup = new PopupWithForm(
   "#newCard-popup",
   () => {},
 );
-const inspiredPopup = new Popup("#inspired-popup");
 const profilePopup = new Popup("#profile-popup");
 const cardPopup = new PopupCard(
   {
@@ -211,9 +215,6 @@ profileEditBtn.addEventListener("click", () => {
 });
 newCardBtn.addEventListener("click", () => {
   newCardPopup.open();
-});
-inspiredBtn.addEventListener("click", () => {
-  inspiredPopup.open();
 });
 cardList.addEventListener("click", (evt) => {
   const card = evt.target.closest(".card");
@@ -261,7 +262,6 @@ newCardFormValidator.setEventListeners();
 loginPopup.setEventListeners();
 profileEditPopup.setEventListeners();
 newCardPopup.setEventListeners();
-inspiredPopup.setEventListeners();
 profilePopup.setEventListeners();
 cardPopup.setEventListeners();
 categoriesPopup.setEventListeners();
@@ -348,6 +348,27 @@ function loginSuccess() {
 
   loginPopup.close();
 }
+
+/// Função de toggle para os cards recomendados ///
+categories.forEach((cat) => {
+  cat.addEventListener("click", (e) => {
+    const category = e.currentTarget.dataset.name;
+    const arrowBtn = e.currentTarget.querySelector(
+      ".complement__categories_header-button",
+    );
+    const container = document.querySelector(
+      `.complement__${category}-container`,
+    );
+    const isHidden = container.classList.contains(
+      "complement__category-active",
+    );
+    container.classList.toggle("complement__category-active");
+    arrowBtn.src = isHidden
+      ? "../images/icons/arrow-down.png"
+      : "../images/icons/arrow-up.png";
+
+  });
+});
 
 //new update///
 // npx json-server db.json //
