@@ -4,7 +4,7 @@
 
 O Aromatik é um projeto pessoal desenvolvido em paralelo às sprints do curso de Web Development da TripleTen. Ele funciona como um laboratório contínuo de evolução, onde aplico de forma prática os conceitos aprendidos em HTML, CSS e JavaScript, sempre com foco em organização, clareza, escalabilidade e visão de produto.
 
-A partir da versão **1.9**, o projeto dá um salto significativo: deixa de ser apenas uma aplicação front-end estática e passa a se comunicar com uma **API local real**, com persistência de dados, autenticação conectada ao servidor e uma identidade visual completamente redesenhada.
+A versão 2.0 marca uma evolução significativa na proposta do projeto, introduzindo uma abordagem mais inteligente e contextualizada de recomendação de perfumes, baseada na análise da coleção do usuário.
 
 ## Objetivo do projeto
 
@@ -41,12 +41,6 @@ A versão 1.9 introduz uma API REST local construída com **json-server**, hospe
 - `/users` — dados de autenticação do usuário
 - `/perfumes` — catálogo de fragrâncias disponíveis
 - `/collection` — coleção pessoal do usuário (referências por `perfumeId`)
-
-Para rodar a API localmente:
-```bash
-cd aromatik-api
-npx json-server db.json
-```
 
 ## Principais funcionalidades e soluções técnicas
 
@@ -93,6 +87,20 @@ npx json-server db.json
    - Box-shadow e hover em mockups, foto e botões
    - Cards de categoria com efeito de expansão e reveal no hover (CSS puro)
 
+7. **Sistema de recomendações (novo na v2.0)**
+   - Foi implementada uma nova section que sugere perfumes com base na análise da coleção do usuário.
+   - As recomendações são organizadas por:
+    * Categoria olfativa (ex: frescos, cítricos, florais)
+    * Faixa de preço (tiers light, premium, high)
+
+8. **Sistema de expansão de categorias**
+   - Cada categoria da section de recomendações funciona como um bloco interativo
+   - O container de perfumes inicia com max-height: 0 e opacity: 0
+   - Ao clicar na categoria, uma classe é adicionada/removida
+   - Assim o container expande com uma transição suave.
+   - Uso de dataset para identificar as categorias e toggle para controle de estado
+   - Feedback visual no estado da categoria pela seta indicadora
+
 ## Decisões arquiteturais
 
 - `index.js` como **orquestrador**: instâncias, listeners, bootstrap e verificação de API
@@ -115,16 +123,18 @@ npx json-server db.json
 - Design system completo: paleta, tipografia, espaçamentos e componentes
 - Separação real entre estado, UI e orquestração
 
-## Melhorias futuras (roadmap v2.0)
+## Melhorias futuras (roadmap v2.1+)
 
 - Reescrita completa em **React**
 - Componentização de cards, modais e formulários
-- Gerenciamento de estado com `useState` e `useEffect`
+- Gerenciamento de estado com hooks
 - Integração com API externas (Claude / Fragella)
-- Sistema de avaliações e notas por perfume
-- Filtros e busca por categoria, ocasião e estação
+- Sistema de recomendação mais inteligente
+- Filtros e busca por categoria, ocasião e perfil olfativo
 - Persistência completa com backend real
 - Perfil do usuário com estatísticas da coleção
+- Dashboard completo para o usuário
+- Blog implementado
 
 ## Screenshots
 
@@ -136,10 +146,13 @@ Coleção
 ![Coleção](./images/screenshots/newCollection.JPG)
 
 Card Modal
-![Cards](./images/screenshots/newCardPopup.JPG)
+![Cards](./images/screenshots/modal-collection-card.jpg)
 
 Categorias
-![Categorias](./images/screenshots/newCategories.JPG)
+![Categorias](./images/screenshots/section-categories.jpg)
 
 Identidade Olfativa
 ![Categorias](./images/screenshots/newIdentity.JPG)
+
+Recomendações
+![Categorias](./images/screenshots/section-recomendation.jpg)
