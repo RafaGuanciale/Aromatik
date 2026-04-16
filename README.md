@@ -156,3 +156,6 @@ Identidade Olfativa
 
 Recomendações
 ![Categorias](./images/screenshots/section-recomendation.jpg)
+
+This project is for educational and portfolio purposes only.
+Commercial use is not permitted without explicit authorization.
